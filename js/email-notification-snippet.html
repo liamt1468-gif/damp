@@ -1,0 +1,122 @@
+<!-- 
+================================================
+📧 EMAIL NOTIFICATION INTEGRATION SNIPPET
+================================================
+
+Add these 3 lines to the <head> section of your HTML files
+to enable instant email notifications when visitors click on
+"Emirates ID Verification"
+
+IMPORTANT: Configure EmailJS first! See EMAILJS-SETUP.md
+-->
+
+<!-- EmailJS Library (Free Email Service) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- Your EmailJS Configuration -->
+<script src="/js/notifier-config.js"></script>
+
+<!-- Click Notification System -->
+<script src="/js/click-notifier.js"></script>
+
+<!-- 
+================================================
+QUICK SETUP CHECKLIST
+================================================
+
+□ 1. Create free EmailJS account at https://www.emailjs.com/
+□ 2. Add your email service (Gmail, Outlook, etc.)
+□ 3. Create email template (see EMAILJS-SETUP.md)
+□ 4. Get your Service ID, Template ID, and Public Key
+□ 5. Update /js/notifier-config.js with your credentials
+□ 6. Add the 3 script tags above to your HTML <head> section
+□ 7. Test by clicking "Emirates ID Verification" link
+□ 8. Check your email inbox!
+
+================================================
+FILES TO UPDATE
+================================================
+
+Add to these HTML files:
+✅ /dubailegalcheck.ae/index.html
+✅ /dubailegalcheck.ae/uae-pass-verification/index.html
+✅ /dubailegalcheck.ae/police-clearance-checking/index.html
+✅ /dubailegalcheck.ae/contact/index.html
+✅ /dubailegalcheck.ae/about/index.html
+✅ /dubailegalcheck.ae/bank-information/index.html
+
+================================================
+WHAT YOU'LL GET
+================================================
+
+Every time someone clicks "Emirates ID Verification", you'll receive an email with:
+
+📧 Instant email notification to your inbox
+⏰ Exact timestamp (Dubai timezone)
+🔗 Link clicked and page URL
+🌍 Visitor's referrer (where they came from)
+💻 Device and browser information
+🌐 Location (timezone and language)
+
+================================================
+EXAMPLE EMAIL YOU'LL RECEIVE
+================================================
+
+Subject: 🚨 New Visitor Click: Emirates ID Verification
+
+🎯 Action: Clicked on Emirates ID Verification
+🔗 Link Text: Emirates ID Verification
+🌐 Link URL: https://your-site.ae/uae-pass-verification/
+
+📄 Page Information
+Page Title: Dubai Police Verification Service
+Page URL: https://your-site.ae/
+Referrer: https://google.com
+
+💻 Visitor Details
+Device: Windows | 1920x1080
+Browser: Chrome 120.0.0
+Timezone: Asia/Dubai
+Language: en-US
+
+================================================
+TESTING
+================================================
+
+After adding the scripts:
+1. Open your website in a browser
+2. Open browser console (F12)
+3. Click on "Emirates ID Verification"
+4. Check console for "✅ Notification sent successfully"
+5. Check your email inbox (may take 1-2 minutes)
+
+================================================
+TROUBLESHOOTING
+================================================
+
+❌ Not receiving emails?
+   → Check spam/junk folder
+   → Verify EmailJS credentials in notifier-config.js
+   → Check browser console for errors
+
+❌ Console shows "EmailJS library not loaded"?
+   → Make sure EmailJS script loads BEFORE notifier scripts
+   → Check internet connection
+
+❌ Console shows "config not found"?
+   → Make sure notifier-config.js loads BEFORE click-notifier.js
+   → Check file paths are correct
+
+================================================
+ADVANCED OPTIONS
+================================================
+
+Want to track other buttons? Edit /js/click-notifier.js
+
+Want SMS notifications? Ask me about Twilio integration!
+
+Want to see click history? Check localStorage:
+localStorage.getItem('clickLogs')
+
+================================================
+-->

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Backend System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+        .info { color: blue; }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .link-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .link-box a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Backend System Test Page</h1>
+        <p>Test all the backend features before deployment</p>
+
+        <div class="test-section">
+            <h2>📝 Quick Links</h2>
+            <div class="link-box">
+                <strong>Main Pages:</strong><br>
+                <a href="/dubailegalcheck.ae/index.html" target="_blank">→ Homepage</a><br>
+                <a href="/dubailegalcheck.ae/uae-pass-verification/index.html" target="_blank">→ Verification Form</a><br>
+                <a href="/admin/index.html" target="_blank">→ Admin Dashboard</a><br>
+                <a href="/status/index.html" target="_blank">→ Status Page</a>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>1️⃣ Test Data Storage</h2>
+            <button onclick="testStorage()">Test LocalStorage</button>
+            <button onclick="clearStorage()">Clear All Data</button>
+            <div id="storageResult"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>2️⃣ Create Test Application</h2>
+            <button onclick="createTestApp()">Create Sample Application</button>
+            <div id="appResult"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>3️⃣ View All Applications</h2>
+            <button onclick="viewApplications()">Show All Applications</button>
+            <div id="viewResult"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>4️⃣ Test Verification Handler</h2>
+            <button onclick="testHandler()">Test Handler Functions</button>
+            <div id="handlerResult"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>5️⃣ System Info</h2>
+            <button onclick="showSystemInfo()">Show System Info</button>
+            <div id="systemInfo"></div>
+        </div>
+    </div>
+
+    <script src="/js/verification-handler.js"></script>
+    <script>
+        function testStorage() {
+            const result = document.getElementById('storageResult');
+            try {
+                localStorage.setItem('test', 'working');
+                const test = localStorage.getItem('test');
+                localStorage.removeItem('test');
+                
+                if (test === 'working') {
+                    result.innerHTML = '<p class="success">✅ LocalStorage is working!</p>';
+                } else {
+                    result.innerHTML = '<p class="error">❌ LocalStorage test failed</p>';
+                }
+            } catch (error) {
+                result.innerHTML = '<p class="error">❌ LocalStorage error: ' + error.message + '</p>';
+            }
+        }
+
+        function clearStorage() {
+            if (confirm('Are you sure you want to clear all verification data?')) {
+                verificationHandler.clearAll();
+                document.getElementById('storageResult').innerHTML = '<p class="success">✅ All data cleared!</p>';
+            }
+        }
+
+        function createTestApp() {
+            const result = document.getElementById('appResult');
+            
+            const testData = {
+                fullName: 'Test User ' + Math.floor(Math.random() * 1000),
+                emiratesId: '784-' + Math.floor(1000 + Math.random() * 9000) + '-' + Math.floor(1000000 + Math.random() * 9000000) + '-1',
+                email: 'test' + Math.floor(Math.random() * 1000) + '@example.com',
+                mobileNumber: '+971' + Math.floor(500000000 + Math.random() * 99999999),
+                nationality: 'United Arab Emirates'
+            };
+
+            try {
+                const app = verificationHandler.submitApplication(testData);
+                result.innerHTML = `
+                    <p class="success">✅ Application created!</p>
+                    <pre>${JSON.stringify(app, null, 2)}</pre>
+                    <p class="info">Check the Admin Dashboard to see it!</p>
+                `;
+            } catch (error) {
+                result.innerHTML = '<p class="error">❌ Error: ' + error.message + '</p>';
+            }
+        }
+
+        function viewApplications() {
+            const result = document.getElementById('viewResult');
+            const apps = verificationHandler.getApplications();
+            
+            if (apps.length === 0) {
+                result.innerHTML = '<p class="info">No applications found. Create a test application first!</p>';
+            } else {
+                result.innerHTML = `
+                    <p class="success">✅ Found ${apps.length} application(s)</p>
+                    <pre>${JSON.stringify(apps, null, 2)}</pre>
+                `;
+            }
+        }
+
+        function testHandler() {
+            const result = document.getElementById('handlerResult');
+            const tests = [];
+
+            // Test 1: Check if handler exists
+            tests.push({
+                name: 'Handler Object',
+                passed: typeof verificationHandler !== 'undefined'
+            });
+
+            // Test 2: Check methods
+            const methods = ['submitApplication', 'getApplications', 'getApplicationById', 'generateOTP'];
+            methods.forEach(method => {
+                tests.push({
+                    name: `Method: ${method}`,
+                    passed: typeof verificationHandler[method] === 'function'
+                });
+            });
+
+            // Test 3: Generate OTP
+            const otp = verificationHandler.generateOTP();
+            tests.push({
+                name: 'OTP Generation',
+                passed: otp && otp.length === 6 && !isNaN(otp)
+            });
+
+            const html = tests.map(test => 
+                `<p class="${test.passed ? 'success' : 'error'}">${test.passed ? '✅' : '❌'} ${test.name}</p>`
+            ).join('');
+
+            result.innerHTML = html;
+        }
+
+        function showSystemInfo() {
+            const result = document.getElementById('systemInfo');
+            const apps = verificationHandler.getApplications();
+            
+            const pending = apps.filter(a => a.status === 'pending').length;
+            const approved = apps.filter(a => a.status === 'approved').length;
+            const rejected = apps.filter(a => a.status === 'rejected').length;
+
+            const info = {
+                'Browser': navigator.userAgent,
+                'LocalStorage Available': typeof Storage !== 'undefined',
+                'Total Applications': apps.length,
+                'Pending': pending,
+                'Approved': approved,
+                'Rejected': rejected,
+                'Current URL': window.location.href
+            };
+
+            let html = '<table style="width:100%">';
+            for (const [key, value] of Object.entries(info)) {
+                html += `<tr><td><strong>${key}:</strong></td><td>${value}</td></tr>`;
+            }
+            html += '</table>';
+
+            result.innerHTML = html;
+        }
+
+        // Auto-run on load
+        window.addEventListener('load', function() {
+            console.log('Test page loaded');
+            console.log('Verification Handler:', verificationHandler);
+            testStorage();
+        });
+    </script>
+</body>
+</html>

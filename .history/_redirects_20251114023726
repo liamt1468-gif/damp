@@ -1,0 +1,29 @@
+# Netlify Redirects and Rewrites
+
+# Root redirect
+/                                           /dubailegalcheck.ae/index.html    200
+
+# Clean URLs
+/admin                                      /admin/index.html                  200
+/status                                     /status/index.html                 200
+/verification-status                        /status/index.html                 200
+
+# Main site pages
+/home                                       /dubailegalcheck.ae/index.html     200
+/uae-pass-verification                      /dubailegalcheck.ae/uae-pass-verification/index.html    200
+/police-clearance-checking                  /dubailegalcheck.ae/police-clearance-checking/index.html 200
+/about                                      /dubailegalcheck.ae/about/index.html    200
+/contact                                    /dubailegalcheck.ae/contact/index.html  200
+
+# Remove HTTrack artifacts from URLs
+/index.html                                 /dubailegalcheck.ae/index.html     301
+/hts-cache/*                                /dubailegalcheck.ae/index.html     404
+/cookies.txt                                /dubailegalcheck.ae/index.html     404
+/hts-log.txt                                /dubailegalcheck.ae/index.html     404
+
+# API-like endpoints for future use
+/api/submit                                 /status/index.html                 200
+/api/check-status                           /status/index.html                 200
+
+# Fallback for any other requests
+/*                                          /dubailegalcheck.ae/index.html     404

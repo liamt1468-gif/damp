@@ -1,0 +1,82 @@
+<!-- 
+    Add this script block to the bottom of your verification form pages 
+    (before closing </body> tag) to enable the backend functionality 
+-->
+
+<!-- Verification Handler Scripts -->
+<script src="/js/verification-handler.js"></script>
+<script src="/js/form-handler.js"></script>
+
+<!-- Auto-redirect on form success -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Enhanced form submission handler
+    document.addEventListener('wpcf7mailsent', function(event) {
+        const formData = event.detail.inputs;
+        const data = {};
+        
+        formData.forEach(input => {
+            data[input.name] = input.value;
+        });
+
+        console.log('Form submitted successfully:', data);
+
+        // Create application
+        try {
+            const application = verificationHandler.submitApplication(data);
+            sessionStorage.setItem('currentApplication', JSON.stringify(application));
+            
+            // Show success message
+            alert('Application submitted successfully! Redirecting to status page...');
+            
+            // Redirect to status page
+            setTimeout(function() {
+                window.location.href = '/status/index.html';
+            }, 1500);
+        } catch (error) {
+            console.error('Error processing application:', error);
+            alert('There was an error processing your application. Please try again.');
+        }
+    }, false);
+
+    // Handle manual form submissions (non-CF7)
+    const manualForms = document.querySelectorAll('.manual-verification-form');
+    manualForms.forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            try {
+                const application = verificationHandler.submitApplication(data);
+                sessionStorage.setItem('currentApplication', JSON.stringify(application));
+                alert('Application submitted successfully!');
+                window.location.href = '/status/index.html';
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error submitting application. Please try again.');
+            }
+        });
+    });
+});
+</script>
+
+<!-- Debug Console -->
+<script>
+// Add debug button for testing
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    const debugBtn = document.createElement('button');
+    debugBtn.textContent = '🔧 Debug Tools';
+    debugBtn.style.cssText = 'position:fixed;bottom:20px;right:20px;padding:10px 20px;background:#667eea;color:white;border:none;border-radius:5px;cursor:pointer;z-index:9999;';
+    debugBtn.onclick = function() {
+        const apps = localStorage.getItem('verificationApplications');
+        console.log('Stored Applications:', apps ? JSON.parse(apps) : 'None');
+        alert('Check console for stored applications');
+    };
+    document.body.appendChild(debugBtn);
+}
+</script>

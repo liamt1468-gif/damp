@@ -1,0 +1,49 @@
+# Netlify configuration for Dubai Police Verification Service
+
+[build]
+  publish = "."
+  command = "echo 'No build command needed'"
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"
+
+# Redirect root to main site
+[[redirects]]
+  from = "/"
+  to = "/dubailegalcheck.ae/index.html"
+  status = 200
+
+# Clean URLs
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/status"
+  to = "/status/index.html"
+  status = 200
+
+# SPA fallback for status page
+[[redirects]]
+  from = "/verification-status"
+  to = "/status/index.html"
+  status = 200
+
+# Handle old HTTrack paths
+[[redirects]]
+  from = "/index.html"
+  to = "/dubailegalcheck.ae/index.html"
+  status = 301
+
+# 404 page
+[[redirects]]
+  from = "/*"
+  to = "/dubailegalcheck.ae/index.html"
+  status = 404
