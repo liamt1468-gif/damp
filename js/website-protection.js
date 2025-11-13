@@ -66,8 +66,7 @@ class WebsiteProtection {
     checkDomain() {
         const currentDomain = window.location.hostname;
         const allowedDomains = [
-            'dubailegalcheck.ae',
-            'www.dubailegalcheck.ae',
+            'uaelegalstatus.netlify.app',
             'localhost',
             '127.0.0.1',
             ...this.config.allowedDomains
