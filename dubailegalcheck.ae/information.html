@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information - Dubai Police Verification Service</title>
+    
+    <!-- Email Notification System -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="../js/notifier-config.js"></script>
+    <script src="../js/click-notifier.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 60px 40px;
+        }
+        
+        .info-section {
+            margin-bottom: 50px;
+        }
+        
+        .info-section h2 {
+            color: #d32f2f;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #d32f2f;
+            padding-bottom: 10px;
+        }
+        
+        .info-section p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .info-card {
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        
+        .info-card:hover {
+            border-color: #d32f2f;
+            box-shadow: 0 10px 30px rgba(211, 47, 47, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .info-card h3 {
+            color: #d32f2f;
+            font-size: 22px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-card .icon {
+            font-size: 28px;
+        }
+        
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info-card ul li {
+            color: #555;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .info-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .contact-box h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-box p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .contact-box a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid white;
+            padding-bottom: 2px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #d32f2f;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            background: #c62828;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+        }
+        
+        .faq-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .faq-item:hover {
+            border-color: #d32f2f;
+        }
+        
+        .faq-question {
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            color: #555;
+            margin-top: 15px;
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-item .toggle-icon {
+            font-size: 24px;
+            color: #d32f2f;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .toggle-icon {
+            transform: rotate(45deg);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .info-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Information Center</h1>
+            <p>Dubai Police Verification Service - Everything You Need to Know</p>
+        </div>
+        
+        <div class="content">
+            <!-- About Section -->
+            <div class="info-section">
+                <h2>About Our Service</h2>
+                <p>
+                    The Dubai Police Verification Service is an official government platform designed to help residents 
+                    and visitors verify various documents and records with the Dubai Police. Our service ensures quick, 
+                    secure, and reliable verification of your important documents.
+                </p>
+                <p>
+                    We are committed to providing transparent, efficient, and accessible services to all individuals 
+                    requiring police verification in Dubai. Our platform is backed by advanced technology and adheres 
+                    to the highest standards of data security and privacy.
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="info-section">
+                <h2>Our Services</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>
+                            <span class="icon">🆔</span>
+                            Emirates ID Verification
+                        </h3>
+                        <ul>
+                            <li>Real-time verification</li>
+                            <li>Instant status updates</li>
+                            <li>Secure data handling</li>
+                            <li>24/7 availability</li>
+                            <li>Email notifications</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>
+                            <span class="icon">🚓</span>
+                            Police Clearance Check
+                        </h3>
+                        <ul>
+                            <li>Criminal record verification</li>
+                            <li>Background checks</li>
+                            <li>Employment screening</li>
+                            <li>Official certificates</li>
+                            <li>Fast processing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>
+                            <span class="icon">🏦</span>
+                            Bank Information Verification
+                        </h3>
+                        <ul>
+                            <li>Account verification</li>
+                            <li>Transaction records</li>
+                            <li>Financial checks</li>
+                            <li>Secure authentication</li>
+                            <li>Confidential handling</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>
+                            <span class="icon">🔐</span>
+                            UAE Pass Verification
+                        </h3>
+                        <ul>
+                            <li>Digital identity check</li>
+                            <li>Biometric verification</li>
+                            <li>Secure authentication</li>
+                            <li>Quick processing</li>
+                            <li>Government approved</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="info-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long does verification take?
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Most verifications are processed within 24-48 hours. Emirates ID verification is typically instant, 
+                        while police clearance checks may take 2-3 business days depending on the complexity of the request.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is my data secure?
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, absolutely. We use advanced encryption and security protocols to protect your personal information. 
+                        All data is stored securely and handled in compliance with UAE data protection regulations.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What documents do I need?
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Requirements vary by service. For Emirates ID verification, you'll need your Emirates ID number. 
+                        For police clearance, you'll need a valid passport and UAE residence visa. For bank verification, 
+                        you'll need your account details and authorization.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I track my application?
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! Each application receives a unique tracking ID. You can use this ID to check the status of 
+                        your verification request at any time. You'll also receive email notifications for important updates.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are the fees?
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Fees vary depending on the type of verification. Emirates ID verification: AED 50, 
+                        Police clearance certificate: AED 100, Bank verification: AED 75. 
+                        All fees are payable online through secure payment gateways.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Box -->
+            <div class="contact-box">
+                <h3>📞 Need Help?</h3>
+                <p>Our support team is available 24/7 to assist you</p>
+                <p>Email: <a href="mailto:testm7369@gmail.com">testm7369@gmail.com</a></p>
+                <p>Phone: <a href="tel:+971563614931">+971 56 361 4931</a></p>
+                <p>WhatsApp: <a href="https://wa.me/971563614931">Chat with us</a></p>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="index.html" class="back-button">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

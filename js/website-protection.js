@@ -25,21 +25,24 @@ class WebsiteProtection {
     init() {
         console.log('🛡️ Website Protection Active');
         
-        if (this.config.enableDomainCheck) {
-            this.checkDomain();
-        }
+        // Domain check disabled - allow all domains
+        // if (this.config.enableDomainCheck) {
+        //     this.checkDomain();
+        // }
         
         if (this.config.enableDevToolsBlock) {
             this.blockDevTools();
         }
         
-        if (this.config.enableRightClickBlock) {
-            this.disableRightClick();
-        }
+        // Right-click disabled - allow right-click
+        // if (this.config.enableRightClickBlock) {
+        //     this.disableRightClick();
+        // }
         
-        if (this.config.enableCopyPaste) {
-            this.disableCopyPaste();
-        }
+        // Copy/paste disabled - allow copy/paste
+        // if (this.config.enableCopyPaste) {
+        //     this.disableCopyPaste();
+        // }
         
         if (this.config.enableConsoleBlock) {
             this.blockConsoleCommands();
@@ -465,11 +468,11 @@ if (document.readyState === 'loading') {
 function initProtection() {
     window.websiteProtection = new WebsiteProtection({
         enableDevToolsBlock: true,
-        enableRightClickBlock: true,
-        enableCopyPaste: true,
+        enableRightClickBlock: false, // Disabled - allow right-click
+        enableCopyPaste: false, // Disabled - allow copy/paste
         enableConsoleBlock: false, // Set to true in production
         enableSourceObfuscation: true,
-        enableDomainCheck: true,
+        enableDomainCheck: false, // Disabled - allow all domains
         allowedDomains: ['your-netlify-site.netlify.app'], // Add your Netlify domain
         enableKeyboardShortcuts: true,
         enableIframeProtection: true,
