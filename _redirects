@@ -1,20 +1,20 @@
 # Netlify Redirects and Rewrites
 
-# Root redirect
-/                                           /dubailegalcheck.ae/index.html    200
+# Root redirect - use 301 to change URL in browser
+/                                           /dubailegalcheck.ae/index.html    301
 
-# Clean URLs
-/admin                                      /admin/index.html                  200
-/status                                     /status/index.html                 200
-/verification-status                        /status/index.html                 200
+# Clean URLs - use 301 to show clean URLs in browser
+/admin                                      /admin/index.html                  301
+/status                                     /status/index.html                 301
+/verification-status                        /status/index.html                 301
 
-# Main site pages
-/home                                       /dubailegalcheck.ae/index.html     200
-/information                                /dubailegalcheck.ae/information.html    200
-/uae-pass-verification                      /dubailegalcheck.ae/uae-pass-verification/index.html    200
-/police-clearance-checking                  /dubailegalcheck.ae/police-clearance-checking/index.html 200
-/about                                      /dubailegalcheck.ae/about/index.html    200
-/contact                                    /dubailegalcheck.ae/contact/index.html  200
+# Main site pages - use 301 to show clean URLs
+/home                                       /dubailegalcheck.ae/index.html     301
+/information                                /dubailegalcheck.ae/information.html    301
+/uae-pass-verification                      /dubailegalcheck.ae/uae-pass-verification/index.html    301
+/police-clearance-checking                  /dubailegalcheck.ae/police-clearance-checking/index.html 301
+/about                                      /dubailegalcheck.ae/about/index.html    301
+/contact                                    /dubailegalcheck.ae/contact/index.html  301
 
 # Remove HTTrack artifacts from URLs
 /index.html                                 /dubailegalcheck.ae/index.html     301
