@@ -1,8 +1,5 @@
 # Netlify Redirects and Rewrites
 
-# Hide dubailegalcheck.ae folder from URLs - use rewrites (200)
-/dubailegalcheck.ae/*  /:splat  301
-
 # Root redirect
 /                                           /dubailegalcheck.ae/index.html    200
 
