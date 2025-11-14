@@ -242,128 +242,8 @@ jQuery(document).ready(function($) {
     background-color: #FFFFFFC7 !important;
 }
 		</style>
-		
-		<!-- Dubai Police Header Styles -->
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet">
-		<style>
-		/* Dubai Police Header Styles */
-		header {background: linear-gradient(135deg, #1a5c3e 0%, #0d4028 100%);box-shadow: 0 2px 10px rgba(0,0,0,0.1);position: relative;z-index: 1000;}
-		.container-fluid {max-width: 1400px;margin: 0 auto;padding: 0 40px;}
-		.head-logo {display: flex;align-items: center;justify-content: space-between;padding: 20px 0 10px;}
-		.head-logo .gov-logo img {height: 60px;width: auto;object-fit: contain;}
-		.head-logo .dp-logo img {height: 80px;width: auto;object-fit: contain;}
-		.mega-menu {background: #00a99d;padding: 0;}
-		.main-navigation {display: flex;align-items: center;justify-content: space-between;padding: 0 40px;}
-		.hamburger-menu {display: none;}
-		.main-navigation-links {flex: 1;}
-		.main-navigation-links ul {display: flex;list-style: none;margin: 0;padding: 0;gap: 0;}
-		.main-navigation-links li {position: relative;}
-		.main-navigation-links li a {display: block;padding: 18px 25px;color: white;text-decoration: none;font-size: 16px;font-weight: 500;transition: all 0.3s ease;border-bottom: 3px solid transparent;}
-		.main-navigation-links li a:hover, .main-navigation-links li.active a {background: rgba(255,255,255,0.1);border-bottom-color: white;}
-		.main-navigation-links .drop-menu .normal-menu {position: absolute;top: 100%;left: 0;background: white;min-width: 280px;box-shadow: 0 5px 20px rgba(0,0,0,0.15);list-style: none;padding: 15px 0;margin: 0;opacity: 0;visibility: hidden;transform: translateY(-10px);transition: all 0.3s ease;z-index: 1000;}
-		.main-navigation-links .drop-menu:hover .normal-menu {opacity: 1;visibility: visible;transform: translateY(0);}
-		.main-navigation-links .normal-menu li {border-bottom: 1px solid #f0f0f0;}
-		.main-navigation-links .normal-menu li:last-child {border-bottom: none;}
-		.main-navigation-links .normal-menu li a {color: #333;padding: 12px 25px;border: none;}
-		.main-navigation-links .normal-menu li a:hover {background: #f0faf9;color: #00a99d;}
-		.menu-actions {display: flex;align-items: center;gap: 20px;}
-		.menu-actions .action-search-icon {display: flex;align-items: center;gap: 8px;padding: 10px 20px;color: white;background: rgba(255,255,255,0.15);border-radius: 25px;cursor: pointer;transition: all 0.3s ease;font-size: 15px;}
-		.menu-actions .action-search-icon:hover {background: rgba(255,255,255,0.25);}
-		.menu-actions .lang-sel-list {display: flex;align-items: center;gap: 8px;padding: 10px 20px;color: white;background: rgba(255,255,255,0.15);border-radius: 25px;cursor: pointer;transition: all 0.3s ease;font-size: 15px;}
-		.menu-actions .lang-sel-list:hover {background: rgba(255,255,255,0.25);}
-		.material-icons-outlined, .material-icons-round {font-size: 20px;vertical-align: middle;}
-		
-		/* Hero Section Fix */
-		.elementor-location-header {margin-bottom: 0 !important;}
-		.elementor-section.elementor-top-section {padding-top: 80px !important;}
-		
-		/* Side Menu Styles */
-		.side-menu {position: fixed;left: -380px;top: 0;width: 380px;height: 100vh;background: white;box-shadow: 5px 0 25px rgba(0,0,0,0.3);overflow-y: auto;transition: left 0.3s ease;z-index: 9999;}
-		.side-menu.active {left: 0;}
-		.side-menu-close {text-align: right;padding: 20px;border-bottom: 1px solid #eee;}
-		.side-menu-close a {color: #333;font-size: 28px;text-decoration: none;transition: color 0.3s;}
-		.side-menu-close a:hover {color: #00a99d;}
-		.side-menu-top {padding: 30px;}
-		.side-menu-title {font-size: 18px;font-weight: bold;color: #00a99d;margin: 25px 0 15px;padding-bottom: 12px;border-bottom: 2px solid #00a99d;text-transform: uppercase;letter-spacing: 0.5px;}
-		.side-menu-other-title {margin-top: 40px;}
-		.side-other-menu {list-style: none;padding: 0;margin: 0;}
-		.side-other-menu li {border-bottom: 1px solid #f5f5f5;}
-		.side-other-menu li a {display: block;padding: 15px 20px;color: #333;text-decoration: none;transition: all 0.3s ease;font-size: 15px;}
-		.side-other-menu li a:hover, .side-other-menu li.active a {background: #f0faf9;color: #00a99d;padding-left: 25px;}
-		.side-menu-dropdown > a {display: flex;justify-content: space-between;align-items: center;}
-		.side-menu-dropdown ul {list-style: none;padding-left: 25px;display: none;background: #fafafa;}
-		.side-menu-dropdown.open ul {display: block;}
-		.side-menu-dropdown ul li a {font-size: 14px;padding: 12px 20px;}
-		.side-ftr-logo {list-style: none;padding: 25px 0;margin: 25px 0;border-top: 1px solid #eee;border-bottom: 1px solid #eee;}
-		.side-ftr-logo li {margin: 12px 0;}
-		.side-ftr-logo li a {display: flex;align-items: center;gap: 12px;padding: 12px;color: #333;text-decoration: none;transition: all 0.3s ease;border-radius: 5px;}
-		.side-ftr-logo li a:hover {background: #f0faf9;color: #00a99d;}
-		.side-ftr-logo img {height: 35px;width: auto;}
-		.side-copy-text {font-size: 12px;color: #666;line-height: 1.8;margin: 25px 0;padding: 20px;background: #f9f9f9;border-radius: 8px;}
-		.side-copy-text p {margin: 0;}
-		.side-menu-bottom {background: #f8f8f8;padding: 25px;border-top: 1px solid #eee;}
-		.side-ftr-actions {display: flex;flex-direction: column;gap: 25px;}
-		.side-menu-actions ul {display: flex;gap: 15px;flex-wrap: wrap;list-style: none;margin: 0;padding: 0;}
-		.side-menu-actions li {flex-shrink: 0;}
-		.selected-lang {padding: 10px 20px;background: #00a99d;color: white;border-radius: 25px;text-decoration: none;display: inline-block;cursor: pointer;transition: all 0.3s;font-weight: 500;}
-		.selected-lang:hover {background: #008c85;}
-		.accesssibility-icon, .login-text {display: flex;align-items: center;gap: 8px;font-size: 14px;color: #333;padding: 8px 15px;background: white;border-radius: 20px;border: 1px solid #ddd;}
-		.side-gov-logo {text-align: center;margin-top: 25px;padding: 20px;background: white;border-radius: 8px;}
-		.side-gov-logo img {max-height: 70px;width: auto;}
-		.d-none {display: none !important;}
-		
-		@media (min-width: 769px) {
-			.mobile-logo, .mobile-action {display: none !important;}
-		}
-		
-		@media (max-width: 768px) {
-			header {display: none !important;}
-			.elementor-section.elementor-top-section {padding-top: 20px !important;}
-		}
-		</style>
 		</head>
 <body class="home wp-singular page-template page-template-elementor_header_footer page page-id-1333 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor theme-default exclusive-addons-elementor elementor-default elementor-template-full-width elementor-kit-62 elementor-page elementor-page-1333">
-
-<header>
-	<div class="container-fluid">
-		<div class="head-logo">
-			<div class="gov-logo">
-				<a href="https://www.dubai.ae/en" rel="noopener noreferrer" title="opens in a new window" target="_blank">
-					<img src="wp-content/uploads/2020/03/government-of-dubai-red.jpg" alt="Government of Dubai">
-				</a>
-			</div>
-			<div class="dp-logo">
-				<a href="/">
-					<img src="wp-content/uploads/2020/03/download__3_-removebg-preview.png" alt="Dubai Police">
-				</a>
-			</div>
-		</div>
-	</div>
-	
-	<div class="mega-menu">
-		<div class="main-navigation">
-			<div class="main-navigation-links">
-				<ul>
-					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="site/about.html">About Us</a></li>
-					<li><a href="site/information.html">Information</a></li>
-					<li><a href="site/contact.html">Contact</a></li>
-				</ul>
-			</div>
-			
-			<div class="menu-actions">
-				<div class="action-search-icon">
-					<i class="material-icons-outlined notranslate">search</i>
-					<span>Search...</span>
-				</div>
-				<div class="lang-sel-list">
-					<span>English</span>
-					<i class="material-icons-round notranslate">expand_more</i>
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
 
 
 <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
@@ -1432,7 +1312,7 @@ jQuery(document).ready(function($) {
 				</div>
 				<div class="elementor-element elementor-element-4e4587a exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-text-editor" data-id="4e4587a" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>Copyright © 2025 - 2026. All Rights Reserved.</p>								</div>
+									<p>Copyright © 2024. All Rights Reserved.</p>								</div>
 				</div>
 				</div>
 		<div class="elementor-element elementor-element-d64c2ce e-con-full e-flex e-con e-child" data-id="d64c2ce" data-element_type="container">
@@ -1518,7 +1398,7 @@ jQuery(document).ready(function($) {
 				</div>
 				<div class="elementor-element elementor-element-64b2ac1 exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-text-editor" data-id="64b2ac1" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>Copyright © 2025 - 2026. All Rights Reserved.</p>								</div>
+									<p>Copyright © 2022. All rights reserved.</p>								</div>
 				</div>
 		<div class="elementor-element elementor-element-29572a3 e-con-full e-flex e-con e-child" data-id="29572a3" data-element_type="container">
 		<div class="elementor-element elementor-element-a6778db e-con-full e-flex e-con e-child" data-id="a6778db" data-element_type="container">
@@ -2226,143 +2106,6 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/dubailegalcheck.ae\/wp-ad
 </script>
 <script src="wp-content/plugins/elementor-pro/assets/js/frontend.mind92b.js?ver=3.26.1" id="elementor-pro-frontend-js"></script>
 <script src="wp-content/plugins/elementor-pro/assets/js/elements-handlers.mind92b.js?ver=3.26.1" id="pro-elements-handlers-js"></script>
-
-<!-- Dubai Police Header JavaScript -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Hamburger menu toggle
-    const hamburgerMenu = document.querySelector('.hamburger-menu a');
-    const sideMenu = document.querySelector('.side-menu');
-    const sideMenuClose = document.querySelector('.side-menu-close a');
-    const body = document.body;
-    
-    if (hamburgerMenu && sideMenu) {
-        // Open side menu
-        hamburgerMenu.addEventListener('click', function(e) {
-            e.preventDefault();
-            sideMenu.classList.add('active');
-            body.style.overflow = 'hidden';
-        });
-        
-        // Close side menu
-        if (sideMenuClose) {
-            sideMenuClose.addEventListener('click', function(e) {
-                e.preventDefault();
-                sideMenu.classList.remove('active');
-                body.style.overflow = '';
-            });
-        }
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (sideMenu.classList.contains('active') && 
-                !sideMenu.contains(e.target) && 
-                !hamburgerMenu.contains(e.target)) {
-                sideMenu.classList.remove('active');
-                body.style.overflow = '';
-            }
-        });
-    }
-    
-    // Side menu dropdown toggles
-    const sideMenuDropdowns = document.querySelectorAll('.side-menu-dropdown > a');
-    sideMenuDropdowns.forEach(function(dropdown) {
-        dropdown.addEventListener('click', function(e) {
-            e.preventDefault();
-            const parent = this.parentElement;
-            const isOpen = parent.classList.contains('open');
-            
-            // Close all other dropdowns
-            document.querySelectorAll('.side-menu-dropdown.open').forEach(function(item) {
-                if (item !== parent) {
-                    item.classList.remove('open');
-                }
-            });
-            
-            // Toggle current dropdown
-            if (isOpen) {
-                parent.classList.remove('open');
-            } else {
-                parent.classList.add('open');
-            }
-            
-            // Rotate arrow icon
-            const arrow = this.querySelector('.material-icons-outlined');
-            if (arrow) {
-                arrow.style.transform = parent.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
-                arrow.style.transition = 'transform 0.3s ease';
-            }
-        });
-    });
-    
-    // Language switcher
-    const switchToArabic = document.getElementById('switchToArabicbtn');
-    const switchToArabicMob = document.getElementById('switchToArabicbtnmob');
-    const switchToEnglish = document.getElementById('switchToEnglishbtn');
-    
-    if (switchToArabic) {
-        switchToArabic.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Switching to Arabic...');
-        });
-    }
-    
-    if (switchToArabicMob) {
-        switchToArabicMob.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Switching to Arabic (mobile)...');
-        });
-    }
-    
-    if (switchToEnglish) {
-        switchToEnglish.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Switching to English...');
-        });
-    }
-    
-    // Language selector dropdown
-    const langSelList = document.querySelector('.lang-sel-list');
-    if (langSelList) {
-        langSelList.addEventListener('click', function() {
-            const langOptions = document.querySelectorAll('.action-lang-select');
-            langOptions.forEach(function(option) {
-                option.parentElement.classList.toggle('d-none');
-            });
-        });
-    }
-    
-    // Search action
-    const searchIcon = document.querySelector('.action-search-icon');
-    const mobileAction = document.querySelector('.mobile-action');
-    
-    if (searchIcon) {
-        searchIcon.addEventListener('click', function() {
-            const elementorSearchToggle = document.querySelector('.elementor-search-form__toggle');
-            if (elementorSearchToggle) {
-                elementorSearchToggle.click();
-            }
-        });
-    }
-    
-    if (mobileAction) {
-        mobileAction.addEventListener('click', function() {
-            const elementorSearchToggle = document.querySelector('.elementor-search-form__toggle');
-            if (elementorSearchToggle) {
-                elementorSearchToggle.click();
-            }
-        });
-    }
-    
-    // Animate burger menu on click
-    const burgerMenu = document.querySelector('.burger-menu');
-    if (burgerMenu && hamburgerMenu) {
-        hamburgerMenu.addEventListener('click', function() {
-            burgerMenu.classList.toggle('active');
-        });
-    }
-});
-</script>
 
 </body>
 

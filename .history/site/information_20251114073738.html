@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Center - Dubai Police Verification Services | FAQ & Guide</title>
+    <meta name="description" content="Complete guide to Dubai Police Verification Services. Get answers to FAQs about Emirates ID verification, police clearance checks, bank verification, and UAE Pass authentication. 24/7 support available.">
+    <meta name="keywords" content="Dubai Police verification guide, Emirates ID check, police clearance FAQ, UAE Pass verification, bank information verification, verification fees, processing time">
+    <meta name="author" content="Dubai Police Verification Service">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://uaelegalstatus.netlify.app/information">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uaelegalstatus.netlify.app/information">
+    <meta property="og:title" content="Information Center - Dubai Police Verification Services">
+    <meta property="og:description" content="Complete guide and FAQ for Emirates ID verification, police clearance, bank verification, and UAE Pass authentication. Get answers to all your questions.">
+    <meta property="og:image" content="https://uaelegalstatus.netlify.app/wp-content/uploads/2025/02/images__8_-removebg-preview.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://uaelegalstatus.netlify.app/information">
+    <meta name="twitter:title" content="Information Center - Dubai Police Verification Services">
+    <meta name="twitter:description" content="Complete guide and FAQ for Emirates ID verification, police clearance, bank verification, and UAE Pass authentication.">
+    <meta name="twitter:image" content="https://uaelegalstatus.netlify.app/wp-content/uploads/2025/02/images__8_-removebg-preview.png">
+    
+    <!-- Structured Data - FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does verification take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most verifications are processed within 24-48 hours. Emirates ID verification is typically instant, while police clearance checks may take 2-3 business days depending on the complexity of the request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, absolutely. We use advanced encryption and security protocols to protect your personal information. All data is stored securely and handled in compliance with UAE data protection regulations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the fees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Emirates ID verification: AED 50, Police clearance certificate: AED 100, Bank verification: AED 75. All fees are payable online through secure payment gateways."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    
+    <!-- Email Notification System -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="../js/notifier-config.js"></script>
+    <script src="../js/click-notifier.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .top-header {
+            background: white;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .top-header .container-fluid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .gov-logo img, .dp-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .main-nav {
+            background: linear-gradient(135deg, #00a99d 0%, #008c84 100%);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            padding: 25px 20px;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links li a:hover, .nav-links li a.active {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-links li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: white;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-btn, .lang-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .search-btn:hover, .lang-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #00a99d 0%, #008c84 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 60px 20px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #00a99d;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #00a99d;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 169, 157, 0.1);
+            border-radius: 50%;
+            color: #00a99d;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #00a99d;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            color: #888;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Enhanced Footer Mobile Responsiveness */
+        @media (max-width: 480px) {
+            footer {
+                padding: 40px 15px 15px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-section h3 {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            
+            .footer-section ul li {
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+            
+            .footer-section ul li a {
+                word-wrap: break-word;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .social-links a {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .footer-bottom {
+                padding-top: 20px;
+            }
+            
+            .footer-bottom p {
+                font-size: 12px;
+                line-height: 1.6;
+            }
+        }
+        
+        .content {
+            padding: 60px 40px;
+        }
+        
+        .info-section {
+            margin-bottom: 50px;
+        }
+        
+        .info-section h2 {
+            color: #00a99d;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #00a99d;
+            padding-bottom: 10px;
+        }
+        
+        .info-section p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .info-card {
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        
+        .info-card:hover {
+            border-color: #00a99d;
+            box-shadow: 0 10px 30px rgba(0, 169, 157, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .info-card h3 {
+            color: #00a99d;
+            font-size: 22px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-card .icon {
+            font-size: 28px;
+        }
+        
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info-card ul li {
+            color: #555;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .info-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #00a99d 0%, #008c84 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .contact-box h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-box p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .contact-box a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid white;
+            padding-bottom: 2px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #00a99d;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            background: #008c84;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 169, 157, 0.3);
+        }
+        
+        .faq-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .faq-item:hover {
+            border-color: #00a99d;
+        }
+        
+        .faq-question {
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            color: #555;
+            margin-top: 15px;
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-item .toggle-icon {
+            font-size: 24px;
+            color: #00a99d;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .toggle-icon {
+            transform: rotate(45deg);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .container {
+                border-radius: 10px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .info-section {
+                margin-bottom: 30px;
+            }
+            
+            .info-section h2 {
+                font-size: 20px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .info-card {
+                padding: 20px;
+            }
+            
+            .info-card h3 {
+                font-size: 18px;
+            }
+            
+            .contact-box {
+                padding: 30px 20px;
+            }
+            
+            .contact-box h3 {
+                font-size: 20px;
+            }
+            
+            .contact-box p {
+                font-size: 14px;
+            }
+            
+            .back-button {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+            
+            .faq-question {
+                font-size: 16px;
+            }
+            
+            .faq-answer {
+                font-size: 14px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 24px;
+            }
+            
+            .info-card h3 {
+                font-size: 16px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .info-card .icon {
+                font-size: 24px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    @media (max-width: 768px) {
+        .top-header { display: none !important; }
+        .mobile-elementor-header { display: block !important; }
+        .mobile-header-logos { background: #fff; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e5e5; }
+        .mobile-logo-left, .mobile-logo-right { flex: 1; display: flex; }
+        .mobile-logo-left { justify-content: flex-start; }
+        .mobile-logo-right { justify-content: flex-end; }
+        .mobile-logo-left img, .mobile-logo-right img { max-width: 100%; max-height: 60px; height: auto; object-fit: contain; }
+        .mobile-navbar { background: linear-gradient(135deg, #00a99d 0%, #008c84 100%); padding: 12px 15px; display: flex; align-items: center; gap: 15px; }
+        .mobile-menu-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .mobile-menu-icon i { color: white; font-size: 20px; }
+        .mobile-home-link { display: flex; align-items: center; gap: 8px; color: white; text-decoration: none; font-weight: 500; }
+        .mobile-verify-btn { margin-left: auto; background: white; color: #00a99d; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; border: none; }
+        .mobile-search-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .mobile-search-icon i { color: white; font-size: 16px; }
+    }
+    @media (min-width: 769px) { .mobile-elementor-header { display: none !important; } }
+    </style>
+</head>
+<body>
+    <div class="mobile-elementor-header" style="display: none;">
+        <div class="mobile-header-logos">
+            <div class="mobile-logo-left"><img src="../wp-content/uploads/2020/03/download__3_-removebg-preview.png" alt="Dubai Police"></div>
+            <div class="mobile-logo-right"><img src="../wp-content/uploads/2020/03/government-of-dubai-red.jpg" alt="Government of Dubai"></div>
+        </div>
+        <div class="mobile-navbar">
+            <div class="mobile-menu-icon" id="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+            <a href="/site/index.html" class="mobile-home-link"><i class="fas fa-home"></i><span>Home</span></a>
+            <button class="mobile-verify-btn"><i class="fas fa-fingerprint"></i><span>Verify</span></button>
+            <div class="mobile-search-icon"><i class="fas fa-search"></i></div>
+        </div>
+    </div>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="container-fluid">
+            <div class="dp-logo">
+                <img width="280" height="156" src="wp-content/uploads/2020/03/download__3_-removebg-preview.png" class="attachment-full size-full" alt="Dubai Police" srcset="wp-content/uploads/2020/03/download__3_-removebg-preview.png 280w, wp-content/uploads/2020/03/download__3_-removebg-preview.png 200w" sizes="(max-width: 280px) 100vw, 280px">
+            </div>
+            <div class="gov-logo">
+                <img loading="lazy" width="815" height="328" src="wp-content/uploads/2020/03/government-of-dubai-red.jpg" class="attachment-full size-full" alt="Government of Dubai" srcset="wp-content/uploads/2020/03/government-of-dubai-red.jpg 815w, wp-content/uploads/2020/03/government-of-dubai-red.jpg 200w" sizes="(max-width: 815px) 100vw, 815px">
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="/site/index.html">Home</a></li>
+                <li><a href="/site/about.html">About Us</a></li>
+                <li><a href="/site/information.html" class="active">Information</a></li>
+                <li><a href="/status/index.html">Verification Status</a></li>
+                <li><a href="/site/contact.html">Contact Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn">
+                    <span class="material-icons-outlined">search</span>
+                </button>
+                <button class="lang-btn">EN</button>
+                <button class="hamburger">
+                    <span class="material-icons-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>📋 Information Center</h1>
+        <p>Everything You Need to Know About Our Verification Services</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="content">
+            <!-- About Section -->
+            <div class="info-section">
+                <h2>About Our Service</h2>
+                <p>
+                    The Dubai Police Verification Service is an official government platform designed to help residents 
+                    and visitors verify various documents and records with the Dubai Police. Our service ensures quick, 
+                    secure, and reliable verification of your important documents.
+                </p>
+                <p>
+                    We are committed to providing transparent, efficient, and accessible services to all individuals 
+                    requiring police verification in Dubai. Our platform is backed by advanced technology and adheres 
+                    to the highest standards of data security and privacy.
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="info-section">
+                <h2>Our Services</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>
+                            <span class="icon">🆔</span>
+                            Emirates ID Verification
+                        </h3>
+                        <ul>
+                            <li>Real-time verification</li>
+                            <li>Instant status updates</li>
+                            <li>Secure data handling</li>
+                            <li>24/7 availability</li>
+                            <li>Email notifications</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>
+                            <span class="icon">🚓</span>
+                            Police Clearance Check
+                        </h3>
+                        <ul>
+                            <li>Criminal record verification</li>
+                            <li>Background checks</li>
+                            <li>Employment screening</li>
+                            <li>Official certificates</li>
+                            <li>Fast processing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>
+                            <span class="icon">🏦</span>
+                            Bank Information Verification
+                        </h3>
+                        <ul>
+                            <li>Account verification</li>
+                            <li>Transaction records</li>
+                            <li>Financial checks</li>
+                            <li>Secure authentication</li>
+                            <li>Confidential handling</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>
+                            <span class="icon">🔐</span>
+                            UAE Pass Verification
+                        </h3>
+                        <ul>
+                            <li>Digital identity check</li>
+                            <li>Biometric verification</li>
+                            <li>Secure authentication</li>
+                            <li>Quick processing</li>
+                            <li>Government approved</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="info-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long does verification take?
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Most verifications are processed within 24-48 hours. Emirates ID verification is typically instant, 
+                        while police clearance checks may take 2-3 business days depending on the complexity of the request.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is my data secure?
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, absolutely. We use advanced encryption and security protocols to protect your personal information. 
+                        All data is stored securely and handled in compliance with UAE data protection regulations.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What documents do I need?
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Requirements vary by service. For Emirates ID verification, you'll need your Emirates ID number. 
+                        For police clearance, you'll need a valid passport and UAE residence visa. For bank verification, 
+                        you'll need your account details and authorization.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I track my application?
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! Each application receives a unique tracking ID. You can use this ID to check the status of 
+                        your verification request at any time. You'll also receive email notifications for important updates.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are the fees?
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Fees vary depending on the type of verification. Emirates ID verification: AED 50, 
+                        Police clearance certificate: AED 100, Bank verification: AED 75. 
+                        All fees are payable online through secure payment gateways.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Box -->
+            <div class="contact-box">
+                <h3>📞 Need Help?</h3>
+                <p>Our support team is available 24/7 to assist you</p>
+                <p>Email: <a href="mailto:testm7369@gmail.com">testm7369@gmail.com</a></p>
+                <p>Phone: <a href="tel:+971563614931">+971 56 361 4931</a></p>
+                <p>WhatsApp: <a href="https://wa.me/971563614931">Chat with us</a></p>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="/site/index.html" class="back-button">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/site/index.html">Home</a></li>
+                        <li><a href="/site/about.html">About Us</a></li>
+                        <li><a href="/site/information.html">Information</a></li>
+                        <li><a href="/status/index.html">Verification Status</a></li>
+                        <li><a href="/site/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/site/index.html#services">Police Clearance Verification</a></li>
+                        <li><a href="/site/index.html#services">Bank Information Verification</a></li>
+                        <li><a href="/site/index.html#services">UAE Pass Verification</a></li>
+                        <li><a href="/site/index.html#services">Document Authentication</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/site/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/site/index.html#terms">Terms & Conditions</a></li>
+                        <li><a href="/site/index.html#terms">Customer Service Agreement</a></li>
+                        <li><a href="/site/information.html#faq">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>📧 support@uaelegalstatus.ae</li>
+                        <li>📱 +971 4 XXX XXXX</li>
+                        <li>🕐 24/7 Support Available</li>
+                        <li>📍 Dubai, UAE</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2021-2025 UAE Legal Status Verification, all rights reserved.</p>
+                <p>This site is monitored and maintained by Dubai Police Verification Services.</p>
+                <p>Last modified: November 14, 2025</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // FAQ Toggle
+        for (const item of document.querySelectorAll('.faq-item')) {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                for (const i of document.querySelectorAll('.faq-item')) {
+                    i.classList.remove('active');
+                }
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    </script>
+    
+    <style>
+    @media (max-width: 768px) {
+        .mobile-sidebar-menu { position: fixed; top: 0; left: -100%; width: 280px; height: 100vh; background: #fff; box-shadow: 4px 0 20px rgba(0,0,0,0.15); z-index: 10000; transition: left 0.3s ease; overflow-y: auto; display: flex; flex-direction: column; }
+        .mobile-sidebar-menu.active { left: 0; }
+        .sidebar-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.5); z-index: 9999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .sidebar-menu-overlay.active { opacity: 1; visibility: visible; }
+        .sidebar-header-section { padding: 30px 20px 20px; text-align: center; border-bottom: 1px solid #e5e5e5; }
+        .sidebar-close-btn { position: absolute; top: 15px; left: 15px; background: transparent; border: none; font-size: 24px; color: #333; cursor: pointer; padding: 5px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; }
+        .sidebar-logo-container img { max-width: 120px; height: auto; }
+        .sidebar-language { display: flex; align-items: center; justify-content: center; gap: 8px; color: #333; font-size: 14px; font-weight: 500; margin-top: 10px; }
+        .sidebar-menu-section { flex: 1; padding: 10px 0; overflow-y: auto; }
+        .sidebar-menu-title { padding: 15px 20px 10px; font-size: 12px; font-weight: 700; color: #999; text-transform: uppercase; }
+        .sidebar-menu-item { display: flex; align-items: center; padding: 14px 20px; color: #333; text-decoration: none; transition: all 0.3s ease; border-left: 3px solid transparent; }
+        .sidebar-menu-item:hover { background: #f5f5f5; }
+        .sidebar-menu-item.active { color: #00a99d; border-left-color: #00a99d; background: #f0faf9; }
+        .sidebar-menu-item-text { font-size: 15px; font-weight: 500; flex: 1; }
+        .sidebar-footer-section { padding: 20px; border-top: 1px solid #e5e5e5; background: #fafafa; text-align: center; }
+        .sidebar-gov-logo-container img { max-height: 50px; width: auto; }
+    }
+    </style>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        if (menuBtn) {
+            const overlay = document.createElement('div');
+            overlay.className = 'sidebar-menu-overlay';
+            document.body.appendChild(overlay);
+            const sidebar = document.createElement('nav');
+            sidebar.className = 'mobile-sidebar-menu';
+            sidebar.innerHTML = `
+                <button class="sidebar-close-btn" id="sidebarCloseBtn"><i class="fas fa-times"></i></button>
+                <div class="sidebar-header-section">
+                    <div class="sidebar-logo-container"><img src="../wp-content/uploads/2020/03/download__3_-removebg-preview.png" alt="Dubai Police"></div>
+                    <div class="sidebar-language"><i class="fas fa-globe"></i><span>English</span></div>
+                </div>
+                <div class="sidebar-menu-section">
+                    <div class="sidebar-menu-title">MAIN MENU</div>
+                    <a href="/site/index.html" class="sidebar-menu-item"><span class="sidebar-menu-item-text">Home</span></a>
+                    <a href="/site/about.html" class="sidebar-menu-item"><span class="sidebar-menu-item-text">About Us</span></a>
+                    <a href="/site/information.html" class="sidebar-menu-item"><span class="sidebar-menu-item-text">Information</span></a>
+                    <a href="/site/contact.html" class="sidebar-menu-item"><span class="sidebar-menu-item-text">Contact Us</span></a>
+                </div>
+                <div class="sidebar-footer-section">
+                    <div class="sidebar-gov-logo-container"><img src="../wp-content/uploads/2020/03/government-of-dubai-red.jpg" alt="Government of Dubai"></div>
+                </div>
+            `;
+            document.body.appendChild(sidebar);
+            menuBtn.addEventListener('click', () => { sidebar.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; });
+            const close = () => { sidebar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; };
+            document.getElementById('sidebarCloseBtn').addEventListener('click', close);
+            overlay.addEventListener('click', close);
+        }
+    });
+    </script>
+</body>
+</html>

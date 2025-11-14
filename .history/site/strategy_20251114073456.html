@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Strategy - Dubai Police Verification Service</title>
+    <meta name="description" content="Learn about Dubai Police strategic vision for security, technology innovation, and community engagement in law enforcement.">
+    <link rel="canonical" href="https://uaelegalstatus.netlify.app/strategy">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Header Styles */
+        .top-header {
+            background: white;
+            border-bottom: 1px solid #e9ecef;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dp-logo img, .gov-logo img {
+            height: 60px;
+        }
+
+        /* Breadcrumb Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(0,169,157,0.05) 0%, rgba(255,255,255,1) 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: url('wp-content/uploads/2020/03/Our%20Strategy.png') center/contain no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb a {
+            color: #00a99d;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #008c84;
+        }
+
+        .breadcrumb i {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .hero-title {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image {
+            max-width: 500px;
+            margin: 40px auto 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0,169,157,0.2));
+        }
+
+        /* Content Section */
+        .content-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #00a99d;
+        }
+
+        .content-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .strategy-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,169,157,0.2);
+        }
+
+        .strategy-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #00a99d 0%, #008c84 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .strategy-icon i {
+            font-size: 32px;
+            color: white;
+        }
+
+        .strategy-card h3 {
+            font-size: 1.5em;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .strategy-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00a99d 0%, #008c84 100%);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,169,157,0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,169,157,0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2em;
+            }
+
+            .hero-banner {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .content-text {
+                font-size: 1em;
+            }
+
+            .strategy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    @media (max-width: 768px) {
+        .top-header { display: none !important; }
+        .mobile-elementor-header { display: block !important; }
+        .mobile-header-logos { background: #fff; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e5e5; }
+        .mobile-logo-left, .mobile-logo-right { flex: 1; display: flex; }
+        .mobile-logo-left { justify-content: flex-start; }
+        .mobile-logo-right { justify-content: flex-end; }
+        .mobile-logo-left img, .mobile-logo-right img { max-width: 100%; max-height: 60px; height: auto; object-fit: contain; }
+        .mobile-navbar { background: linear-gradient(135deg, #00a99d 0%, #008c84 100%); padding: 12px 15px; display: flex; align-items: center; gap: 15px; }
+        .mobile-menu-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .mobile-menu-icon i { color: white; font-size: 20px; }
+        .mobile-home-link { display: flex; align-items: center; gap: 8px; color: white; text-decoration: none; font-weight: 500; }
+        .mobile-verify-btn { margin-left: auto; background: white; color: #00a99d; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; border: none; }
+        .mobile-search-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .mobile-search-icon i { color: white; font-size: 16px; }
+    }
+    @media (min-width: 769px) { .mobile-elementor-header { display: none !important; } }
+    </style>
+</head>
+<body>
+    <div class="mobile-elementor-header" style="display: none;">
+        <div class="mobile-header-logos">
+            <div class="mobile-logo-left"><img src="../wp-content/uploads/2020/03/download__3_-removebg-preview.png" alt="Dubai Police"></div>
+            <div class="mobile-logo-right"><img src="../wp-content/uploads/2020/03/government-of-dubai-red.jpg" alt="Government of Dubai"></div>
+        </div>
+        <div class="mobile-navbar">
+            <div class="mobile-menu-icon" id="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+            <a href="/site/index.html" class="mobile-home-link"><i class="fas fa-home"></i><span>Home</span></a>
+            <button class="mobile-verify-btn"><i class="fas fa-fingerprint"></i><span>Verify</span></button>
+            <div class="mobile-search-icon"><i class="fas fa-search"></i></div>
+        </div>
+    </div>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="header-container">
+            <div class="dp-logo">
+                <a href="/site/index.html">
+                    <img width="280" height="156" src="wp-content/uploads/2020/03/download__3_-removebg-preview.png" alt="Dubai Police">
+                </a>
+            </div>
+            <div class="gov-logo">
+                <a href="https://www.dubai.ae/en/" target="_blank">
+                    <img width="815" height="328" src="wp-content/uploads/2020/03/government-of-dubai-red.jpg" alt="Government of Dubai">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Banner with Breadcrumb -->
+    <div class="hero-banner">
+        <div class="breadcrumb">
+            <a href="/site/index.html"><i class="fas fa-home"></i> Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="/site/about.html">About Us</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Our Strategy</span>
+        </div>
+        <h1 class="hero-title">Our Strategy</h1>
+        <div class="hero-image">
+            <img src="wp-content/uploads/2020/03/Our%20Strategy.png" alt="Strategy Illustration">
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content-section">
+        <h2 class="section-title">Our Strategic Vision</h2>
+        
+        <p class="content-text">
+            We believe that security and trust are the cornerstones of any legal verification system. Our strategy focuses on leveraging cutting-edge technology to provide instant, accurate, and secure verification solutions that save time and reduce bureaucratic complexities.
+        </p>
+
+        <p class="content-text">
+            We integrate seamlessly with official government databases to ensure 100% authentic results while maintaining the highest standards of data protection and privacy. Our strategic approach encompasses multiple pillars of excellence:
+        </p>
+
+        <div class="strategy-grid">
+            <div class="strategy-card">
+                <div class="strategy-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Security First</h3>
+                <p>
+                    Implementing enterprise-grade security measures, blockchain integration for immutable records, and compliance with international security standards (ISO 27001).
+                </p>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Innovation & Technology</h3>
+                <p>
+                    AI-powered verification systems, intelligent document processing, fraud detection algorithms, and real-time database synchronization.
+                </p>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Customer-Centric</h3>
+                <p>
+                    24/7 availability, mobile-first design, instant notifications, and user-friendly interfaces designed for all skill levels.
+                </p>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Continuous Improvement</h3>
+                <p>
+                    Regular system updates, performance optimization, user feedback integration, and staying ahead of industry trends.
+                </p>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Transparency</h3>
+                <p>
+                    Clear verification processes, detailed status tracking, comprehensive reporting, and open communication channels.
+                </p>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Accessibility</h3>
+                <p>
+                    Multi-language support, cross-platform compatibility, inclusive design principles, and services available to all UAE residents.
+                </p>
+            </div>
+        </div>
+
+        <a href="/site/about.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to About Us
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Dubai Police Verification Service © 2025 All Rights Reserved</p>
+        <p>This site is monitored and maintained by Dubai Police Verification Services.</p>
+    </footer>
+</body>
+</html>
