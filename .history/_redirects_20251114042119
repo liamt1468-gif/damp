@@ -1,0 +1,30 @@
+# Netlify Redirects and Rewrites
+
+# Root redirect - use 301 to change URL in browser
+/                                           /dubailegalcheck.ae/index.html    301
+
+# Clean URLs - use 301 to show clean URLs in browser
+/admin                                      /admin/index.html                  301
+/status                                     /status/index.html                 301
+/verification-status                        /status/index.html                 301
+
+# Main site pages - use 301 to show clean URLs
+/home                                       /dubailegalcheck.ae/index.html     301
+/information                                /dubailegalcheck.ae/information.html    301
+/uae-pass-verification                      /dubailegalcheck.ae/uae-pass-verification/index.html    301
+/police-clearance-checking                  /dubailegalcheck.ae/police-clearance-checking/index.html 301
+/about                                      /dubailegalcheck.ae/about/index.html    301
+/contact                                    /dubailegalcheck.ae/contact/index.html  301
+
+# Remove HTTrack artifacts from URLs
+/index.html                                 /dubailegalcheck.ae/index.html     301
+/hts-cache/*                                /dubailegalcheck.ae/index.html     404
+/cookies.txt                                /dubailegalcheck.ae/index.html     404
+/hts-log.txt                                /dubailegalcheck.ae/index.html     404
+
+# API-like endpoints for future use
+/api/submit                                 /status/index.html                 200
+/api/check-status                           /status/index.html                 200
+
+# Fallback for any other requests
+/*                                          /dubailegalcheck.ae/index.html     404
