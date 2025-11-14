@@ -644,6 +644,90 @@ jQuery(document).ready(function($) {
     background-color: #FFFFFFC7 !important;
 }
 		</style>
+		
+		<!-- Dubai Police Header Styles -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet">
+		<style>
+		/* Dubai Police Header Styles */
+		header {background: linear-gradient(135deg, #1a5c3e 0%, #0d4028 100%);border-bottom: 3px solid #00a99d;box-shadow: 0 2px 10px rgba(0,0,0,0.1);position: relative;z-index: 1000;}
+		.container-fluid {max-width: 1400px;margin: 0 auto;padding: 0 20px;}
+		.head-logo {display: flex;align-items: center;justify-content: space-between;padding: 15px 0;gap: 20px;}
+		.head-logo .gov-logo, .head-logo .dp-logo {flex-shrink: 0;}
+		.head-logo .gov-logo img {height: 50px;width: auto;object-fit: contain;}
+		.head-logo .dp-logo img {height: 70px;width: auto;object-fit: contain;}
+		.mega-menu {display: flex;align-items: center;justify-content: space-between;background: rgba(255,255,255,0.05);border-top: 1px solid rgba(255,255,255,0.1);padding: 0 20px;}
+		.main-navigation {display: flex;align-items: center;flex: 1;}
+		.hamburger-menu {display: none;}
+		.burger-menu {cursor: pointer;width: 30px;}
+		.burger-menu div {width: 100%;height: 3px;background-color: white;margin: 6px 0;transition: 0.3s;}
+		.burger-menu.active .bar1 {transform: rotate(-45deg) translate(-6px, 6px);}
+		.burger-menu.active .bar2 {opacity: 0;}
+		.burger-menu.active .bar3 {transform: rotate(45deg) translate(-6px, -6px);}
+		.hamburger-menu-text {position: absolute;left: -9999px;}
+		.main-navigation-links ul {display: flex;list-style: none;margin: 0;padding: 0;gap: 5px;}
+		.main-navigation-links li {position: relative;}
+		.main-navigation-links li a {display: block;padding: 15px 20px;color: white;text-decoration: none;font-size: 15px;font-weight: 500;transition: all 0.3s ease;}
+		.main-navigation-links li a:hover, .main-navigation-links li.active a {background: #00a99d;color: white;}
+		.main-navigation-links .drop-menu .normal-menu {position: absolute;top: 100%;left: 0;background: white;min-width: 250px;box-shadow: 0 5px 15px rgba(0,0,0,0.2);list-style: none;padding: 10px 0;margin: 0;opacity: 0;visibility: hidden;transform: translateY(-10px);transition: all 0.3s ease;}
+		.main-navigation-links .drop-menu:hover .normal-menu {opacity: 1;visibility: visible;transform: translateY(0);}
+		.main-navigation-links .normal-menu li a {color: #333;padding: 10px 20px;}
+		.main-navigation-links .normal-menu li a:hover {background: #f0faf9;color: #00a99d;}
+		.mobile-logo {display: none;}
+		.mobile-action {display: none;}
+		.menu-actions ul {display: flex;list-style: none;margin: 0;padding: 0;align-items: center;gap: 15px;}
+		.menu-actions li {color: white;cursor: pointer;}
+		.action-search-icon {display: flex;align-items: center;gap: 5px;padding: 8px 15px;background: rgba(255,255,255,0.1);border-radius: 20px;transition: all 0.3s ease;}
+		.action-search-icon:hover {background: rgba(255,255,255,0.2);}
+		.lang-sel-list {display: flex;align-items: center;gap: 5px;padding: 8px 15px;background: rgba(255,255,255,0.1);border-radius: 20px;transition: all 0.3s ease;}
+		.lang-sel-list:hover {background: rgba(255,255,255,0.2);}
+		.d-none {display: none !important;}
+		.side-menu {position: fixed;left: -350px;top: 0;width: 350px;height: 100vh;background: white;box-shadow: 5px 0 20px rgba(0,0,0,0.3);overflow-y: auto;transition: left 0.3s ease;z-index: 9999;}
+		.side-menu.active {left: 0;}
+		.side-menu-close {text-align: right;padding: 15px;border-bottom: 1px solid #eee;}
+		.side-menu-close a {color: #333;font-size: 24px;text-decoration: none;}
+		.side-menu-top {padding: 20px;}
+		.side-menu-title {font-size: 16px;font-weight: bold;color: #00a99d;margin: 20px 0 10px;padding-bottom: 10px;border-bottom: 2px solid #00a99d;}
+		.side-menu-other-title {margin-top: 30px;}
+		.side-other-menu {list-style: none;padding: 0;margin: 0;}
+		.side-other-menu li {border-bottom: 1px solid #f0f0f0;}
+		.side-other-menu li a {display: block;padding: 12px 15px;color: #333;text-decoration: none;transition: all 0.3s ease;}
+		.side-other-menu li a:hover, .side-other-menu li.active a {background: #f0faf9;color: #00a99d;padding-left: 20px;}
+		.side-menu-dropdown > a {display: flex;justify-content: space-between;align-items: center;}
+		.side-menu-dropdown ul {list-style: none;padding-left: 20px;display: none;}
+		.side-menu-dropdown.open ul {display: block;}
+		.side-menu-dropdown ul li a {font-size: 14px;padding: 10px 15px;}
+		.side-ftr-logo {list-style: none;padding: 20px 0;margin: 20px 0;border-top: 1px solid #eee;border-bottom: 1px solid #eee;}
+		.side-ftr-logo li {margin: 10px 0;}
+		.side-ftr-logo li a {display: flex;align-items: center;gap: 10px;padding: 10px;color: #333;text-decoration: none;transition: all 0.3s ease;}
+		.side-ftr-logo li a:hover {background: #f0faf9;color: #00a99d;}
+		.side-ftr-logo img {height: 30px;width: auto;}
+		.side-copy-text {font-size: 12px;color: #666;line-height: 1.6;margin: 20px 0;}
+		.side-copy-text p {margin: 0;}
+		.side-menu-bottom {background: #f8f8f8;padding: 20px;border-top: 1px solid #eee;}
+		.side-ftr-actions {display: flex;flex-direction: column;gap: 20px;}
+		.side-menu-actions ul {display: flex;gap: 15px;flex-wrap: wrap;list-style: none;margin: 0;padding: 0;}
+		.side-menu-actions li {flex-shrink: 0;}
+		.selected-lang {padding: 8px 15px;background: #00a99d;color: white;border-radius: 5px;text-decoration: none;display: inline-block;cursor: pointer;}
+		.accesssibility-icon, .login-text {display: flex;align-items: center;gap: 5px;font-size: 14px;color: #333;}
+		.side-gov-logo {text-align: center;margin-top: 20px;}
+		.side-gov-logo img {max-height: 60px;width: auto;}
+		.material-icons-outlined, .material-icons-round {font-size: 20px;vertical-align: middle;}
+		
+		@media (max-width: 1024px) {.main-navigation-links li a {padding: 12px 15px;font-size: 14px;}}
+		@media (max-width: 768px) {
+			header {display: none;}
+			.hamburger-menu {display: block;margin-right: 15px;}
+			.main-navigation-links {display: none;}
+			.mobile-logo {display: block;flex: 1;}
+			.mobile-logo-green img {height: 50px;width: auto;}
+			.mobile-logo-white {display: none;}
+			.mobile-action {display: block;padding: 10px;color: white;cursor: pointer;}
+			.mobile-action i {font-size: 24px;}
+			.head-logo {padding: 10px 0;}
+			.head-logo .gov-logo img, .head-logo .dp-logo img {height: 40px;}
+			.menu-actions {display: none !important;}
+		}
+		</style>
 		</head>
 <body class="home wp-singular page-template page-template-elementor_header_footer page page-id-1333 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor theme-default exclusive-addons-elementor elementor-default elementor-template-full-width elementor-kit-62 elementor-page elementor-page-1333">
 
@@ -2598,6 +2682,149 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(closeSidebar, 200);
                 }
             });
+        });
+    }
+});
+</script>
+
+<!-- Dubai Police Header JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Hamburger menu toggle
+    const hamburgerMenu = document.querySelector('.hamburger-menu a');
+    const sideMenu = document.querySelector('.side-menu');
+    const sideMenuClose = document.querySelector('.side-menu-close a');
+    const body = document.body;
+    
+    if (hamburgerMenu && sideMenu) {
+        // Open side menu
+        hamburgerMenu.addEventListener('click', function(e) {
+            e.preventDefault();
+            sideMenu.classList.add('active');
+            body.style.overflow = 'hidden';
+        });
+        
+        // Close side menu
+        if (sideMenuClose) {
+            sideMenuClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                sideMenu.classList.remove('active');
+                body.style.overflow = '';
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (sideMenu.classList.contains('active') && 
+                !sideMenu.contains(e.target) && 
+                !hamburgerMenu.contains(e.target)) {
+                sideMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Side menu dropdown toggles
+    const sideMenuDropdowns = document.querySelectorAll('.side-menu-dropdown > a');
+    sideMenuDropdowns.forEach(function(dropdown) {
+        dropdown.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = this.parentElement;
+            const isOpen = parent.classList.contains('open');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.side-menu-dropdown.open').forEach(function(item) {
+                if (item !== parent) {
+                    item.classList.remove('open');
+                }
+            });
+            
+            // Toggle current dropdown
+            if (isOpen) {
+                parent.classList.remove('open');
+            } else {
+                parent.classList.add('open');
+            }
+            
+            // Rotate arrow icon
+            const arrow = this.querySelector('.material-icons-outlined');
+            if (arrow) {
+                arrow.style.transform = parent.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
+                arrow.style.transition = 'transform 0.3s ease';
+            }
+        });
+    });
+    
+    // Language switcher
+    const switchToArabic = document.getElementById('switchToArabicbtn');
+    const switchToArabicMob = document.getElementById('switchToArabicbtnmob');
+    const switchToEnglish = document.getElementById('switchToEnglishbtn');
+    
+    if (switchToArabic) {
+        switchToArabic.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Add your language switch logic here
+            console.log('Switching to Arabic...');
+        });
+    }
+    
+    if (switchToArabicMob) {
+        switchToArabicMob.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Add your language switch logic here
+            console.log('Switching to Arabic (mobile)...');
+        });
+    }
+    
+    if (switchToEnglish) {
+        switchToEnglish.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Add your language switch logic here
+            console.log('Switching to English...');
+        });
+    }
+    
+    // Language selector dropdown
+    const langSelList = document.querySelector('.lang-sel-list');
+    if (langSelList) {
+        langSelList.addEventListener('click', function() {
+            // Toggle language options visibility
+            const langOptions = document.querySelectorAll('.action-lang-select');
+            langOptions.forEach(function(option) {
+                option.parentElement.classList.toggle('d-none');
+            });
+        });
+    }
+    
+    // Search action
+    const searchIcon = document.querySelector('.action-search-icon');
+    const mobileAction = document.querySelector('.mobile-action');
+    
+    if (searchIcon) {
+        searchIcon.addEventListener('click', function() {
+            // Trigger the existing Elementor search
+            const elementorSearchToggle = document.querySelector('.elementor-search-form__toggle');
+            if (elementorSearchToggle) {
+                elementorSearchToggle.click();
+            }
+        });
+    }
+    
+    if (mobileAction) {
+        mobileAction.addEventListener('click', function() {
+            // Trigger the existing Elementor search
+            const elementorSearchToggle = document.querySelector('.elementor-search-form__toggle');
+            if (elementorSearchToggle) {
+                elementorSearchToggle.click();
+            }
+        });
+    }
+    
+    // Animate burger menu on click
+    const burgerMenu = document.querySelector('.burger-menu');
+    if (burgerMenu && hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', function() {
+            burgerMenu.classList.toggle('active');
         });
     }
 });
