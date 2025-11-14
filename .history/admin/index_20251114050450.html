@@ -570,17 +570,17 @@
             </div>
 
         <div class="applications">
-            <h2 data-en="Verification Applications" data-ar="طلبات التحقق">Verification Applications</h2>
+            <h2>Verification Applications</h2>
             
             <div class="search-box">
-                <input type="text" id="searchInput" data-en-placeholder="🔍 Search by name, Emirates ID, email, or mobile..." data-ar-placeholder="🔍 البحث بالاسم أو رقم الهوية أو البريد الإلكتروني أو الجوال..." placeholder="🔍 Search by name, Emirates ID, email, or mobile..." onkeyup="searchApplications()">
+                <input type="text" id="searchInput" placeholder="🔍 Search by name, Emirates ID, email, or mobile..." onkeyup="searchApplications()">
             </div>
             
             <div class="filters">
-                <button class="filter-btn active" onclick="filterApplications('all')" data-en="All" data-ar="الكل">All</button>
-                <button class="filter-btn" onclick="filterApplications('pending')" data-en="Pending" data-ar="قيد الانتظار">Pending</button>
-                <button class="filter-btn" onclick="filterApplications('approved')" data-en="Approved" data-ar="موافق عليه">Approved</button>
-                <button class="filter-btn" onclick="filterApplications('rejected')" data-en="Rejected" data-ar="مرفوض">Rejected</button>
+                <button class="filter-btn active" onclick="filterApplications('all')">All</button>
+                <button class="filter-btn" onclick="filterApplications('pending')">Pending</button>
+                <button class="filter-btn" onclick="filterApplications('approved')">Approved</button>
+                <button class="filter-btn" onclick="filterApplications('rejected')">Rejected</button>
             </div>
 
             <table class="application-table">
@@ -699,14 +699,6 @@
                 }
             });
 
-            // Update input placeholders
-            document.querySelectorAll('[data-en-placeholder]').forEach(element => {
-                const placeholder = element.getAttribute(`data-${currentLanguage}-placeholder`);
-                if (placeholder) {
-                    element.placeholder = placeholder;
-                }
-            });
-
             // Update table headers
             updateTableHeaders();
         }
@@ -780,14 +772,10 @@
             }
 
             if (filtered.length === 0) {
-                const emptyMessage = currentLanguage === 'ar' 
-                    ? (searchQuery ? 'لا توجد طلبات تطابق بحثك' : 'لا توجد طلبات')
-                    : (searchQuery ? 'No applications match your search' : 'No applications found');
-                
                 tbody.innerHTML = `<tr><td colspan="7" class="no-data">
                     <div class="empty-state">
                         <div class="empty-state-icon">📋</div>
-                        <p>${emptyMessage}</p>
+                        <p>${searchQuery ? 'No applications match your search' : 'No applications found'}</p>
                     </div>
                 </td></tr>`;
                 return;
@@ -824,76 +812,48 @@
             const app = applications.find(a => a.id === id);
             if (!app) return;
 
-            const labels = currentLanguage === 'ar' ? {
-                appId: 'رقم الطلب',
-                fullName: 'الاسم الكامل',
-                emiratesId: 'رقم الهوية',
-                email: 'البريد الإلكتروني',
-                mobile: 'رقم الجوال',
-                nationality: 'الجنسية',
-                otp: 'رمز OTP',
-                status: 'الحالة',
-                submissionDate: 'تاريخ التقديم',
-                notProvided: 'غير متوفر',
-                approve: '✓ موافقة',
-                reject: '✗ رفض'
-            } : {
-                appId: 'Application ID',
-                fullName: 'Full Name',
-                emiratesId: 'Emirates ID',
-                email: 'Email',
-                mobile: 'Mobile Number',
-                nationality: 'Nationality',
-                otp: 'OTP Code',
-                status: 'Status',
-                submissionDate: 'Submission Date',
-                notProvided: 'Not provided',
-                approve: '✓ Approve',
-                reject: '✗ Reject'
-            };
-
             const modalBody = document.getElementById('modalBody');
             modalBody.innerHTML = `
                 <div class="detail-row">
-                    <label>${labels.appId}</label>
+                    <label>Application ID</label>
                     <div class="value">${app.id}</div>
                 </div>
                 <div class="detail-row">
-                    <label>${labels.fullName}</label>
+                    <label>Full Name</label>
                     <div class="value">${app.fullName}</div>
                 </div>
                 <div class="detail-row">
-                    <label>${labels.emiratesId}</label>
+                    <label>Emirates ID</label>
                     <div class="value">${app.emiratesId}</div>
                 </div>
                 <div class="detail-row">
-                    <label>${labels.email}</label>
+                    <label>Email</label>
                     <div class="value">${app.email}</div>
                 </div>
                 <div class="detail-row">
-                    <label>${labels.mobile}</label>
+                    <label>Mobile Number</label>
                     <div class="value">${app.mobileNumber}</div>
                 </div>
                 <div class="detail-row">
-                    <label>${labels.nationality}</label>
-                    <div class="value">${app.nationality || labels.notProvided}</div>
+                    <label>Nationality</label>
+                    <div class="value">${app.nationality || 'Not provided'}</div>
                 </div>
                 <div class="detail-row">
-                    <label>${labels.otp}</label>
+                    <label>OTP Code</label>
                     <div class="value">${app.otp || 'N/A'}</div>
                 </div>
                 <div class="detail-row">
-                    <label>${labels.status}</label>
+                    <label>Status</label>
                     <div class="value"><span class="status ${app.status}">${app.status.toUpperCase()}</span></div>
                 </div>
                 <div class="detail-row">
-                    <label>${labels.submissionDate}</label>
+                    <label>Submission Date</label>
                     <div class="value">${new Date(app.timestamp).toLocaleString()}</div>
                 </div>
                 ${app.status === 'pending' ? `
                 <div class="action-buttons">
-                    <button class="btn btn-approve" onclick="updateStatus('${app.id}', 'approved')">${labels.approve}</button>
-                    <button class="btn btn-reject" onclick="updateStatus('${app.id}', 'rejected')">${labels.reject}</button>
+                    <button class="btn btn-approve" onclick="updateStatus('${app.id}', 'approved')">✓ Approve</button>
+                    <button class="btn btn-reject" onclick="updateStatus('${app.id}', 'rejected')">✗ Reject</button>
                 </div>
                 ` : ''}
             `;
@@ -912,11 +872,7 @@
                 loadApplications();
                 closeModal();
                 
-                const message = currentLanguage === 'ar' 
-                    ? (status === 'approved' ? 'تمت الموافقة على الطلب بنجاح!' : 'تم رفض الطلب بنجاح!')
-                    : `Application ${status === 'approved' ? 'approved' : 'rejected'} successfully!`;
-                
-                alert(message);
+                alert(`Application ${status === 'approved' ? 'approved' : 'rejected'} successfully!`);
             }
         }
 
