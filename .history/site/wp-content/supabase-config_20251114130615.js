@@ -13,7 +13,7 @@
 
 const SUPABASE_CONFIG = {
     // Your Supabase credentials - configured and ready!
-    url: 'https://wstfhcqxihxjixkbjosj.supabase.co',
+    url: 'https://wstfhcqxliwjdxbjocj.supabase.co',
     anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzdGZoY3F4aWh4aml4a2Jqb3NqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMxMDU5MzUsImV4cCI6MjA3ODY4MTkzNX0.clsSnoM1KA5CiTsk2c11b1sVeuBKfRo-NV0PgvMsABY'
 };
 
