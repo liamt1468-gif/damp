@@ -2496,126 +2496,73 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/dubailegalcheck.ae\/wp-ad
 <script src="wp-content/plugins/elementor-pro/assets/js/frontend.mind92b.js?ver=3.26.1" id="elementor-pro-frontend-js"></script>
 <script src="wp-content/plugins/elementor-pro/assets/js/elements-handlers.mind92b.js?ver=3.26.1" id="pro-elements-handlers-js"></script>
 
-<!-- Mobile Hamburger Menu Button -->
-<button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open Menu">
-    <i class="fas fa-bars"></i>
-</button>
-
-<!-- Sidebar Overlay -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<!-- Mobile Sidebar -->
-<nav class="mobile-sidebar" id="mobileSidebar">
-    <div class="sidebar-header">
-        <div class="sidebar-logo">Dubai Police</div>
-        <button class="sidebar-close" id="sidebarClose" aria-label="Close Menu">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    
-    <div class="sidebar-menu">
-        <a href="/site/index.html" class="sidebar-menu-item active">
-            <div class="sidebar-menu-icon">
-                <i class="fas fa-home"></i>
+<!-- Modern Mobile Navigation Bar -->
+<nav class="mobile-nav-bar">
+    <div class="mobile-nav-content">
+        <a href="/site/index.html" class="mobile-nav-item active">
+            <div class="mobile-nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
             </div>
-            <span class="sidebar-menu-text">Home</span>
+            <span class="mobile-nav-label">Home</span>
         </a>
         
-        <a href="/site/about.html" class="sidebar-menu-item">
-            <div class="sidebar-menu-icon">
-                <i class="fas fa-info-circle"></i>
+        <a href="/site/information.html" class="mobile-nav-item">
+            <div class="mobile-nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
             </div>
-            <span class="sidebar-menu-text">About Us</span>
+            <span class="mobile-nav-label">Search</span>
         </a>
         
-        <a href="/site/information.html" class="sidebar-menu-item">
-            <div class="sidebar-menu-icon">
-                <i class="fas fa-book"></i>
+        <a href="/status/index.html" class="mobile-nav-item">
+            <div class="mobile-nav-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-4v-4h4v4zm0-5h-4V8h4v4z"/>
+                </svg>
             </div>
-            <span class="sidebar-menu-text">Information</span>
+            <span class="mobile-nav-label">Status</span>
         </a>
         
-        <a href="/status/index.html" class="sidebar-menu-item">
-            <div class="sidebar-menu-icon">
-                <i class="fas fa-clipboard-check"></i>
+        <a href="/site/about.html" class="mobile-nav-item">
+            <div class="mobile-nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 1v6m0 6v6m5.196-15.196l-4.243 4.243m0 5.656l-4.243 4.243m15.196-5.196h-6m-6 0H1m15.196 5.196l-4.243-4.243m0-5.656l-4.243-4.243"></path>
+                </svg>
             </div>
-            <span class="sidebar-menu-text">Verification Status</span>
+            <span class="mobile-nav-label">History</span>
         </a>
         
-        <a href="/site/contact.html" class="sidebar-menu-item">
-            <div class="sidebar-menu-icon">
-                <i class="fas fa-envelope"></i>
+        <a href="/site/privacy-policy.html" class="mobile-nav-item">
+            <div class="mobile-nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
             </div>
-            <span class="sidebar-menu-text">Contact Us</span>
+            <span class="mobile-nav-label">Profile</span>
         </a>
-        
-        <a href="/site/privacy-policy.html" class="sidebar-menu-item">
-            <div class="sidebar-menu-icon">
-                <i class="fas fa-shield-alt"></i>
-            </div>
-            <span class="sidebar-menu-text">Privacy Policy</span>
-        </a>
-    </div>
-    
-    <div class="sidebar-footer">
-        <div class="sidebar-footer-text">
-            Dubai Police Verification Service<br>
-            © 2025 All Rights Reserved
-        </div>
     </div>
 </nav>
 
 <script>
-// Mobile sidebar menu functionality
+// Mobile navigation active state handler
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('mobileMenuToggle');
-    const sidebar = document.getElementById('mobileSidebar');
-    const overlay = document.getElementById('sidebarOverlay');
-    const closeBtn = document.getElementById('sidebarClose');
-    const menuItems = document.querySelectorAll('.sidebar-menu-item');
-    
-    // Open sidebar
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            sidebar.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-    }
-    
-    // Close sidebar function
-    function closeSidebar() {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    
-    // Close sidebar on close button
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeSidebar);
-    }
-    
-    // Close sidebar on overlay click
-    if (overlay) {
-        overlay.addEventListener('click', closeSidebar);
-    }
-    
-    // Set active menu item based on current page
     const currentPage = window.location.pathname;
-    menuItems.forEach(item => {
+    const navItems = document.querySelectorAll('.mobile-nav-item');
+    
+    navItems.forEach(item => {
         const href = item.getAttribute('href');
         item.classList.remove('active');
         
         if (currentPage.includes(href) || (currentPage === '/' && href === '/site/index.html')) {
             item.classList.add('active');
         }
-    });
-    
-    // Close sidebar when menu item is clicked
-    menuItems.forEach(item => {
-        item.addEventListener('click', function() {
-            setTimeout(closeSidebar, 200);
-        });
     });
 });
 </script>
