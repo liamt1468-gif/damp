@@ -6,13 +6,12 @@
 /verification-status                        /status/index.html                 200
 
 # Main site pages
-/home                                       /site/index.html     200
-/information                                /site/information.html    200
-/uae-pass-verification                      /site/uae-pass-verification/index.html    200
-/police-clearance-checking                  /site/police-clearance-checking/index.html 200
-/about                                      /site/about.html    200
-/contact                                    /site/contact/index.html  200
-/privacy-policy                             /site/privacy-policy.html  200
+/home                                       /dubailegalcheck.ae/index.html     200
+/information                                /dubailegalcheck.ae/information.html    200
+/uae-pass-verification                      /dubailegalcheck.ae/uae-pass-verification/index.html    200
+/police-clearance-checking                  /dubailegalcheck.ae/police-clearance-checking/index.html 200
+/about                                      /dubailegalcheck.ae/about/index.html    200
+/contact                                    /dubailegalcheck.ae/contact/index.html  200
 
 # Remove HTTrack artifacts from URLs
 /index.html                                 /dubailegalcheck.ae/index.html     301
