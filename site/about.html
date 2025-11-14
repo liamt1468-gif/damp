@@ -582,8 +582,169 @@
             }
         }
     </style>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+    /* Mobile Elementor Header */
+    @media (max-width: 768px) {
+        /* Hide desktop header on mobile */
+        .top-header,
+        .main-nav {
+            display: none !important;
+        }
+        
+        /* Mobile header container */
+        .mobile-elementor-header {
+            display: block !important;
+        }
+        
+        .mobile-header-logos {
+            background: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .mobile-logo-left,
+        .mobile-logo-right {
+            flex: 1;
+            display: flex;
+        }
+        
+        .mobile-logo-left {
+            justify-content: flex-start;
+        }
+        
+        .mobile-logo-right {
+            justify-content: flex-end;
+        }
+        
+        .mobile-logo-left img,
+        .mobile-logo-right img {
+            max-width: 100%;
+            max-height: 60px;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        /* Mobile navbar */
+        .mobile-navbar {
+            background: linear-gradient(135deg, #00a99d 0%, #008c84 100%);
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .mobile-menu-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-icon:active {
+            transform: scale(0.95);
+        }
+        
+        .mobile-menu-icon i {
+            color: white;
+            font-size: 20px;
+        }
+        
+        .mobile-home-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .mobile-home-link i {
+            font-size: 18px;
+        }
+        
+        .mobile-verify-btn {
+            margin-left: auto;
+            background: white;
+            color: #00a99d;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .mobile-search-icon {
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-search-icon i {
+            color: white;
+            font-size: 16px;
+        }
+    }
+    
+    /* Hide mobile header on desktop */
+    @media (min-width: 769px) {
+        .mobile-elementor-header {
+            display: none !important;
+        }
+    }
+    </style>
 </head>
 <body>
+    <!-- Mobile Elementor Header (Mobile Only) -->
+    <div class="mobile-elementor-header" style="display: none;">
+        <!-- Logo Header -->
+        <div class="mobile-header-logos">
+            <div class="mobile-logo-left">
+                <img src="../wp-content/uploads/2020/03/download__3_-removebg-preview.png" alt="Dubai Police">
+            </div>
+            <div class="mobile-logo-right">
+                <img src="../wp-content/uploads/2020/03/government-of-dubai-red.jpg" alt="Government of Dubai">
+            </div>
+        </div>
+        
+        <!-- Mobile Navbar -->
+        <div class="mobile-navbar">
+            <div class="mobile-menu-icon" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <a href="/site/index.html" class="mobile-home-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <button class="mobile-verify-btn">
+                <i class="fas fa-fingerprint"></i>
+                <span>Verify</span>
+            </button>
+            <div class="mobile-search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </div>
+
     <!-- Top Header -->
     <div class="top-header">
         <div class="header-container">
@@ -645,7 +806,7 @@
                     </div>
                 </div>
                 <div class="read-more-btn fade-box">
-                    <a class="btn" href="#mission">Read more about Our Mission</a>
+                    <a class="btn" href="/site/overview.html">Read more about Overview</a>
                 </div>
             </div>
         </div>
@@ -661,7 +822,7 @@
                     </div>
                 </div>
                 <div class="read-more-btn fade-box">
-                    <a class="btn" href="#services-section">Read more about Strategy</a>
+                    <a class="btn" href="/site/strategy.html">Read more about Strategy</a>
                 </div>
             </div>
 
@@ -685,7 +846,7 @@
                     </div>
                 </div>
                 <div class="read-more-btn fade-box">
-                    <a class="btn" href="/information">Explore Our Services</a>
+                    <a class="btn" href="/site/information.html">Explore Our Services</a>
                 </div>
             </div>
         </div>
@@ -766,5 +927,280 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Mobile White Sidebar Styles -->
+    <style>
+    /* White Sidebar Menu (Dubai Police Style) */
+    @media (max-width: 768px) {
+        /* Sidebar container */
+        .mobile-sidebar-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 280px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-sidebar-menu.active {
+            left: 0;
+        }
+        
+        /* Sidebar overlay */
+        .sidebar-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Sidebar header with logo */
+        .sidebar-header-section {
+            padding: 30px 20px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .sidebar-close-btn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            padding: 5px;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sidebar-logo-container {
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-logo-container img {
+            max-width: 120px;
+            height: auto;
+        }
+        
+        /* Language toggle */
+        .sidebar-language {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        .sidebar-language i {
+            font-size: 18px;
+        }
+        
+        /* Menu section */
+        .sidebar-menu-section {
+            flex: 1;
+            padding: 10px 0;
+            overflow-y: auto;
+        }
+        
+        .sidebar-menu-title {
+            padding: 15px 20px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Menu items */
+        .sidebar-menu-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            position: relative;
+        }
+        
+        .sidebar-menu-item:hover {
+            background: #f5f5f5;
+        }
+        
+        .sidebar-menu-item.active {
+            color: #00a99d;
+            border-left-color: #00a99d;
+            background: #f0faf9;
+        }
+        
+        .sidebar-menu-item-text {
+            font-size: 15px;
+            font-weight: 500;
+            flex: 1;
+        }
+        
+        .sidebar-menu-item-arrow {
+            color: #999;
+            font-size: 12px;
+        }
+        
+        /* Sidebar footer with Government logo */
+        .sidebar-footer-section {
+            padding: 20px;
+            border-top: 1px solid #e5e5e5;
+            background: #fafafa;
+            text-align: center;
+        }
+        
+        .sidebar-gov-logo {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .sidebar-gov-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .sidebar-gov-logo-container img {
+            max-height: 50px;
+            width: auto;
+        }
+    }
+    </style>
+    
+    <!-- Mobile White Sidebar JavaScript -->
+    <script>
+    // White Sidebar Menu functionality (Dubai Police Style)
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        
+        if (menuBtn) {
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'sidebar-menu-overlay';
+            overlay.id = 'sidebarMenuOverlay';
+            document.body.appendChild(overlay);
+            
+            // Create sidebar
+            const sidebar = document.createElement('nav');
+            sidebar.className = 'mobile-sidebar-menu';
+            sidebar.id = 'mobileSidebarMenu';
+            
+            // Menu items
+            const menuItems = [
+                { href: '/site/index.html', text: 'Home', hasArrow: false },
+                { href: '/site/about.html', text: 'About Us', hasArrow: false },
+                { href: '#', text: 'Open Data', hasArrow: true },
+                { href: '#', text: 'Media', hasArrow: false },
+                { href: '/site/information.html', text: 'Information', hasArrow: true },
+                { href: '#', text: 'Inquiries and Follow-up', hasArrow: false },
+                { href: '#', text: 'Initiative', hasArrow: false },
+                { href: '#', text: 'Careers', hasArrow: false },
+                { href: '#', text: 'Help & Support', hasArrow: false },
+                { href: '/site/contact.html', text: 'Contact Us', hasArrow: false }
+            ];
+            
+            // Build sidebar HTML
+            const currentPage = window.location.pathname;
+            sidebar.innerHTML = `
+                <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Menu">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <div class="sidebar-header-section">
+                    <div class="sidebar-logo-container">
+                        <img src="../wp-content/uploads/2020/03/download__3_-removebg-preview.png" alt="Dubai Police Logo">
+                    </div>
+                    <div class="sidebar-language">
+                        <i class="fas fa-globe"></i>
+                        <span>English</span>
+                    </div>
+                </div>
+                
+                <div class="sidebar-menu-section">
+                    <div class="sidebar-menu-title">MAIN MENU</div>
+                    ${menuItems.map(item => {
+                        const isActive = currentPage.includes(item.href) && item.href !== '#';
+                        return `
+                            <a href="${item.href}" class="sidebar-menu-item ${isActive ? 'active' : ''}">
+                                <span class="sidebar-menu-item-text">${item.text}</span>
+                                ${item.hasArrow ? '<i class="fas fa-chevron-right sidebar-menu-item-arrow"></i>' : ''}
+                            </a>
+                        `;
+                    }).join('')}
+                </div>
+                
+                <div class="sidebar-footer-section">
+                    <div class="sidebar-gov-logo-container">
+                        <img src="../wp-content/uploads/2020/03/government-of-dubai-red.jpg" alt="Government of Dubai" class="sidebar-gov-logo">
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(sidebar);
+            
+            // Open sidebar
+            menuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close sidebar function
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Close button
+            const closeBtn = document.getElementById('sidebarCloseBtn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeSidebar);
+            }
+            
+            // Close on overlay click
+            overlay.addEventListener('click', closeSidebar);
+            
+            // Close after menu item click
+            sidebar.querySelectorAll('.sidebar-menu-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    if (this.getAttribute('href') !== '#') {
+                        setTimeout(closeSidebar, 200);
+                    }
+                });
+            });
+        }
+    });
+    </script>
 </body>
 </html>

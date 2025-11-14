@@ -351,71 +351,171 @@ footer a:hover {
     color: #00a99d !important;
 }
 
-/* Mobile Menu Dropdown */
+/* White Sidebar Menu (Dubai Police Style) */
 @media (max-width: 768px) {
-    /* Mobile menu dropdown container */
-    .mobile-menu-dropdown {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        z-index: 9999;
-    }
-    
-    .mobile-menu-dropdown.active {
-        max-height: 500px;
-    }
-    
-    /* Menu items */
-    .mobile-menu-item {
+    /* Sidebar container */
+    .mobile-sidebar-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 280px;
+        height: 100vh;
+        background: #ffffff;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+        z-index: 10000;
+        transition: left 0.3s ease;
+        overflow-y: auto;
         display: flex;
-        align-items: center;
-        padding: 16px 20px;
-        color: rgba(255, 255, 255, 0.8);
-        text-decoration: none;
+        flex-direction: column;
+    }
+    
+    .mobile-sidebar-menu.active {
+        left: 0;
+    }
+    
+    /* Sidebar overlay */
+    .sidebar-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
         transition: all 0.3s ease;
-        border-left: 3px solid transparent;
     }
     
-    .mobile-menu-item:hover,
-    .mobile-menu-item.active {
-        background: rgba(0, 169, 157, 0.1);
-        color: #00a99d;
-        border-left-color: #00a99d;
+    .sidebar-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
     
-    .mobile-menu-icon {
+    /* Sidebar header with logo */
+    .sidebar-header-section {
+        padding: 30px 20px 20px;
+        text-align: center;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    
+    .sidebar-close-btn {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        color: #333;
+        cursor: pointer;
+        padding: 5px;
         width: 35px;
         height: 35px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        margin-right: 12px;
-        transition: all 0.3s ease;
     }
     
-    .mobile-menu-item:hover .mobile-menu-icon,
-    .mobile-menu-item.active .mobile-menu-icon {
-        background: rgba(0, 169, 157, 0.2);
+    .sidebar-logo-container {
+        margin-bottom: 15px;
     }
     
-    .mobile-menu-icon i {
-        font-size: 16px;
+    .sidebar-logo-container img {
+        max-width: 120px;
+        height: auto;
     }
     
-    .mobile-menu-text {
+    /* Language toggle */
+    .sidebar-language {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: #333;
         font-size: 14px;
         font-weight: 500;
+        margin-top: 10px;
     }
     
-    /* Make parent container relative for dropdown positioning */
+    .sidebar-language i {
+        font-size: 18px;
+    }
+    
+    /* Menu section */
+    .sidebar-menu-section {
+        flex: 1;
+        padding: 10px 0;
+        overflow-y: auto;
+    }
+    
+    .sidebar-menu-title {
+        padding: 15px 20px 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Menu items */
+    .sidebar-menu-item {
+        display: flex;
+        align-items: center;
+        padding: 14px 20px;
+        color: #333;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+        position: relative;
+    }
+    
+    .sidebar-menu-item:hover {
+        background: #f5f5f5;
+    }
+    
+    .sidebar-menu-item.active {
+        color: #00a99d;
+        border-left-color: #00a99d;
+        background: #f0faf9;
+    }
+    
+    .sidebar-menu-item-text {
+        font-size: 15px;
+        font-weight: 500;
+        flex: 1;
+    }
+    
+    .sidebar-menu-item-arrow {
+        color: #999;
+        font-size: 12px;
+    }
+    
+    /* Sidebar footer with Government logo */
+    .sidebar-footer-section {
+        padding: 20px;
+        border-top: 1px solid #e5e5e5;
+        background: #fafafa;
+        text-align: center;
+    }
+    
+    .sidebar-gov-logo {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .sidebar-gov-logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .sidebar-gov-logo-container img {
+        max-height: 50px;
+        width: auto;
+    }
+    
+    /* Make parent container relative for positioning */
     [data-id="f38da9b"] {
         position: relative !important;
     }
@@ -2395,66 +2495,108 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/dubailegalcheck.ae\/wp-ad
 <script src="wp-content/plugins/elementor-pro/assets/js/frontend.mind92b.js?ver=3.26.1" id="elementor-pro-frontend-js"></script>
 <script src="wp-content/plugins/elementor-pro/assets/js/elements-handlers.mind92b.js?ver=3.26.1" id="pro-elements-handlers-js"></script>
 
-<!-- Mobile Menu Dropdown (injected via JavaScript) -->
+<!-- Mobile White Sidebar Menu -->
 
 <script>
-// Mobile menu dropdown functionality
+// White Sidebar Menu functionality (Dubai Police Style)
 document.addEventListener('DOMContentLoaded', function() {
     const menuBtn = document.getElementById('mobile-menu-btn');
-    const mobileContainer = document.querySelector('[data-id="f38da9b"]');
     
-    if (menuBtn && mobileContainer) {
-        // Create dropdown menu
-        const dropdown = document.createElement('div');
-        dropdown.className = 'mobile-menu-dropdown';
-        dropdown.id = 'mobileMenuDropdown';
+    if (menuBtn) {
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'sidebar-menu-overlay';
+        overlay.id = 'sidebarMenuOverlay';
+        document.body.appendChild(overlay);
+        
+        // Create sidebar
+        const sidebar = document.createElement('nav');
+        sidebar.className = 'mobile-sidebar-menu';
+        sidebar.id = 'mobileSidebarMenu';
         
         // Menu items
         const menuItems = [
-            { href: '/site/index.html', icon: 'fa-home', text: 'Home', active: true },
-            { href: '/site/about.html', icon: 'fa-info-circle', text: 'About Us' },
-            { href: '/site/information.html', icon: 'fa-book', text: 'Information' },
-            { href: '/status/index.html', icon: 'fa-clipboard-check', text: 'Verification Status' },
-            { href: '/site/contact.html', icon: 'fa-envelope', text: 'Contact Us' },
-            { href: '/site/privacy-policy.html', icon: 'fa-shield-alt', text: 'Privacy Policy' }
+            { href: '/site/index.html', text: 'Home', hasArrow: false },
+            { href: '/site/about.html', text: 'About Us', hasArrow: false },
+            { href: '#', text: 'Open Data', hasArrow: true },
+            { href: '#', text: 'Media', hasArrow: false },
+            { href: '/site/information.html', text: 'Information', hasArrow: true },
+            { href: '#', text: 'Inquiries and Follow-up', hasArrow: false },
+            { href: '#', text: 'Initiative', hasArrow: false },
+            { href: '#', text: 'Careers', hasArrow: false },
+            { href: '#', text: 'Help & Support', hasArrow: false },
+            { href: '/site/contact.html', text: 'Contact Us', hasArrow: false }
         ];
         
-        // Build menu HTML
+        // Build sidebar HTML
         const currentPage = window.location.pathname;
-        menuItems.forEach(item => {
-            const isActive = currentPage.includes(item.href) || (currentPage === '/' && item.href === '/site/index.html');
-            const menuItem = document.createElement('a');
-            menuItem.href = item.href;
-            menuItem.className = 'mobile-menu-item' + (isActive ? ' active' : '');
-            menuItem.innerHTML = `
-                <div class="mobile-menu-icon">
-                    <i class="fas ${item.icon}"></i>
+        sidebar.innerHTML = `
+            <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="sidebar-header-section">
+                <div class="sidebar-logo-container">
+                    <img src="../wp-content/uploads/2020/03/download__3_-removebg-preview.png" alt="Dubai Police Logo">
                 </div>
-                <span class="mobile-menu-text">${item.text}</span>
-            `;
-            dropdown.appendChild(menuItem);
-        });
+                <div class="sidebar-language">
+                    <i class="fas fa-globe"></i>
+                    <span>English</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-menu-section">
+                <div class="sidebar-menu-title">MAIN MENU</div>
+                ${menuItems.map(item => {
+                    const isActive = currentPage.includes(item.href) && item.href !== '#';
+                    return `
+                        <a href="${item.href}" class="sidebar-menu-item ${isActive ? 'active' : ''}">
+                            <span class="sidebar-menu-item-text">${item.text}</span>
+                            ${item.hasArrow ? '<i class="fas fa-chevron-right sidebar-menu-item-arrow"></i>' : ''}
+                        </a>
+                    `;
+                }).join('')}
+            </div>
+            
+            <div class="sidebar-footer-section">
+                <div class="sidebar-gov-logo-container">
+                    <img src="../wp-content/uploads/2020/03/government-of-dubai-red.jpg" alt="Government of Dubai" class="sidebar-gov-logo">
+                </div>
+            </div>
+        `;
         
-        // Add dropdown to mobile container
-        mobileContainer.appendChild(dropdown);
+        document.body.appendChild(sidebar);
         
-        // Toggle dropdown on menu button click
+        // Open sidebar
         menuBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            dropdown.classList.toggle('active');
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
         
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!mobileContainer.contains(e.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
+        // Close sidebar function
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
         
-        // Close dropdown after clicking a menu item
-        dropdown.querySelectorAll('.mobile-menu-item').forEach(item => {
+        // Close button
+        const closeBtn = document.getElementById('sidebarCloseBtn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeSidebar);
+        }
+        
+        // Close on overlay click
+        overlay.addEventListener('click', closeSidebar);
+        
+        // Close after menu item click
+        sidebar.querySelectorAll('.sidebar-menu-item').forEach(item => {
             item.addEventListener('click', function() {
-                dropdown.classList.remove('active');
+                if (this.getAttribute('href') !== '#') {
+                    setTimeout(closeSidebar, 200);
+                }
             });
         });
     }
