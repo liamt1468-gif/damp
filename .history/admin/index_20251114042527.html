@@ -458,7 +458,6 @@
     <script>
         let applications = [];
         let currentFilter = 'all';
-        let searchQuery = '';
 
         // Load applications from localStorage
         function loadApplications() {
@@ -481,49 +480,27 @@
             document.getElementById('rejectedCount').textContent = rejected;
         }
 
-        // Search applications
-        function searchApplications() {
-            searchQuery = document.getElementById('searchInput').value.toLowerCase();
-            renderApplications();
-        }
-
         // Render applications table
         function renderApplications() {
             const tbody = document.getElementById('applicationsList');
             let filtered = applications;
 
-            // Apply status filter
             if (currentFilter !== 'all') {
-                filtered = filtered.filter(a => a.status === currentFilter);
-            }
-
-            // Apply search filter
-            if (searchQuery) {
-                filtered = filtered.filter(a => 
-                    (a.fullName && a.fullName.toLowerCase().includes(searchQuery)) ||
-                    (a.emiratesId && a.emiratesId.toLowerCase().includes(searchQuery)) ||
-                    (a.email && a.email.toLowerCase().includes(searchQuery)) ||
-                    (a.mobileNumber && a.mobileNumber.toLowerCase().includes(searchQuery))
-                );
+                filtered = applications.filter(a => a.status === currentFilter);
             }
 
             if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="7" class="no-data">
-                    <div class="empty-state">
-                        <div class="empty-state-icon">📋</div>
-                        <p>${searchQuery ? 'No applications match your search' : 'No applications found'}</p>
-                    </div>
-                </td></tr>`;
+                tbody.innerHTML = '<tr><td colspan="7" class="no-data">No applications found</td></tr>';
                 return;
             }
 
             tbody.innerHTML = filtered.map(app => `
                 <tr onclick="showDetails('${app.id}')">
                     <td>${app.id.substring(0, 8)}</td>
-                    <td>${app.fullName || 'N/A'}</td>
-                    <td>${app.emiratesId || 'N/A'}</td>
-                    <td>${app.email || 'N/A'}</td>
-                    <td>${app.mobileNumber || 'N/A'}</td>
+                    <td>${app.fullName}</td>
+                    <td>${app.emiratesId}</td>
+                    <td>${app.email}</td>
+                    <td>${app.mobileNumber}</td>
                     <td><span class="status ${app.status}">${app.status.toUpperCase()}</span></td>
                     <td>${new Date(app.timestamp).toLocaleDateString()}</td>
                 </tr>
@@ -620,7 +597,7 @@
         // Logout
         function logout() {
             if (confirm('Are you sure you want to logout?')) {
-                window.location.href = '/home';
+                window.location.href = '../dubailegalcheck.ae/index.html';
             }
         }
 
