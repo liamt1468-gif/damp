@@ -25,6 +25,3 @@
 # API-like endpoints for future use
 /api/submit                                 /status/index.html                 200
 /api/check-status                           /status/index.html                 200
-
-# Fallback for any other requests
-/*                                          /dubailegalcheck.ae/index.html     404
