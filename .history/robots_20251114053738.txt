@@ -1,0 +1,15 @@
+# robots.txt for Dubai Police Verification Service
+# https://uaelegalstatus.netlify.app
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /js/
+Disallow: /.history/
+Disallow: /wp-content/uploads/elementor/
+
+# Sitemap location
+Sitemap: https://uaelegalstatus.netlify.app/sitemap.xml
+
+# Crawl delay (optional, helps prevent server overload)
+Crawl-delay: 1
