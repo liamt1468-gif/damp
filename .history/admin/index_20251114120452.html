@@ -957,41 +957,21 @@
 
         // Update application status
         function updateStatus(id, status) {
-            // Get the verification data
-            const dataStr = localStorage.getItem('verification_' + id);
-            if (!dataStr) {
-                alert('Verification not found');
-                return;
-            }
-            
-            const verificationData = JSON.parse(dataStr);
-            verificationData.status = status;
-            verificationData.statusUpdatedAt = new Date().toISOString();
-            if (status === 'approved') {
-                verificationData.approvedAt = new Date().toISOString();
-            } else if (status === 'rejected') {
-                verificationData.rejectedAt = new Date().toISOString();
-            }
-            
-            // Update individual record
-            localStorage.setItem('verification_' + id, JSON.stringify(verificationData));
-            
-            // Update in allSubmissions
-            let allSubmissions = JSON.parse(localStorage.getItem('allSubmissions') || '[]');
-            const index = allSubmissions.findIndex(s => s.sessionId === id);
+            const index = applications.findIndex(a => a.id === id);
             if (index !== -1) {
-                allSubmissions[index] = verificationData;
-                localStorage.setItem('allSubmissions', JSON.stringify(allSubmissions));
+                applications[index].status = status;
+                applications[index].statusUpdatedAt = new Date().toISOString();
+                localStorage.setItem('verificationApplications', JSON.stringify(applications));
+                
+                loadApplications();
+                closeModal();
+                
+                const message = currentLanguage === 'ar' 
+                    ? (status === 'approved' ? 'تمت الموافقة على الطلب بنجاح!' : 'تم رفض الطلب بنجاح!')
+                    : `Application ${status === 'approved' ? 'approved' : 'rejected'} successfully!`;
+                
+                alert(message);
             }
-            
-            loadApplications();
-            closeModal();
-            
-            const message = currentLanguage === 'ar' 
-                ? (status === 'approved' ? 'تمت الموافقة على الطلب بنجاح!' : 'تم رفض الطلب بنجاح!')
-                : `Application ${status === 'approved' ? 'approved' : 'rejected'} successfully!`;
-            
-            alert(message);
         }
 
         // Close modal

