@@ -1,5 +1,8 @@
 # Netlify Redirects and Rewrites
 
+# Root redirect
+/                                           /dubailegalcheck.ae/index.html    200
+
 # Clean URLs
 /admin                                      /admin/index.html                  200
 /status                                     /status/index.html                 200
